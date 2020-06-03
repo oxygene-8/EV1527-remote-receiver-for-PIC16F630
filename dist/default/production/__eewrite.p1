@@ -1,0 +1,203 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"1161 B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 1161:     struct {
+[s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S55 . RD WR WREN WRERR ]
+"1160
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 1160: typedef union {
+[u S54 `S55 1 ]
+[n S54 . . ]
+"1168
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 1168: extern volatile EECON1bits_t EECON1bits __attribute__((address(0x09C)));
+[v _EECON1bits `VS54 ~T0 @X0 0 e@156 ]
+"1148
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 1148: extern volatile unsigned char EEADR __attribute__((address(0x09B)));
+[v _EEADR `Vuc ~T0 @X0 0 e@155 ]
+"1115
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 1115: extern volatile unsigned char EEDATA __attribute__((address(0x09A)));
+[v _EEDATA `Vuc ~T0 @X0 0 e@154 ]
+"1155
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 1155: extern volatile unsigned char EECON1 __attribute__((address(0x09C)));
+[v _EECON1 `Vuc ~T0 @X0 0 e@156 ]
+"79
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 79:     struct {
+[s S2 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S2 . C DC Z nPD nTO RP IRP ]
+"88
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 88:     struct {
+[s S3 :5 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S3 . . RP0 RP1 ]
+"93
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 93:     struct {
+[s S4 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S4 . CARRY . ZERO ]
+"78
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 78: typedef union {
+[u S1 `S2 1 `S3 1 `S4 1 ]
+[n S1 . . . . ]
+"99
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 99: extern volatile STATUSbits_t STATUSbits __attribute__((address(0x003)));
+[v _STATUSbits `VS1 ~T0 @X0 0 e@3 ]
+"292
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 292:     struct {
+[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S12 . RAIF INTF T0IF RAIE INTE T0IE PEIE GIE ]
+"302
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 302:     struct {
+[s S13 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S13 . . TMR0IF . TMR0IE ]
+"291
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 291: typedef union {
+[u S11 `S12 1 `S13 1 ]
+[n S11 . . . ]
+"309
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 309: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS11 ~T0 @X0 0 e@11 ]
+"1193
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 1193: extern volatile unsigned char EECON2 __attribute__((address(0x09D)));
+[v _EECON2 `Vuc ~T0 @X0 0 e@157 ]
+"54 B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 54: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"61
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 61: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"68
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 68: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"75
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 75: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"161
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 161: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"168
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 168: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"218
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 218: __asm("PORTC equ 07h");
+[; <" PORTC equ 07h ;# ">
+"268
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 268: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"288
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 288: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"366
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 366: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"408
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 408: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"415
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 415: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"422
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 422: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"429
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 429: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"494
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 494: __asm("CMCON equ 019h");
+[; <" CMCON equ 019h ;# ">
+"553
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 553: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"630
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 630: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"680
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 680: __asm("TRISC equ 087h");
+[; <" TRISC equ 087h ;# ">
+"730
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 730: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"772
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 772: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"806
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 806: __asm("OSCCAL equ 090h");
+[; <" OSCCAL equ 090h ;# ">
+"866
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 866: __asm("WPUA equ 095h");
+[; <" WPUA equ 095h ;# ">
+"871
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 871: __asm("WPU equ 095h");
+[; <" WPU equ 095h ;# ">
+"954
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 954: __asm("IOCA equ 096h");
+[; <" IOCA equ 096h ;# ">
+"959
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 959: __asm("IOC equ 096h");
+[; <" IOC equ 096h ;# ">
+"1052
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 1052: __asm("VRCON equ 099h");
+[; <" VRCON equ 099h ;# ">
+"1112
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 1112: __asm("EEDAT equ 09Ah");
+[; <" EEDAT equ 09Ah ;# ">
+"1117
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 1117: __asm("EEDATA equ 09Ah");
+[; <" EEDATA equ 09Ah ;# ">
+"1150
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 1150: __asm("EEADR equ 09Bh");
+[; <" EEADR equ 09Bh ;# ">
+"1157
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 1157: __asm("EECON1 equ 09Ch");
+[; <" EECON1 equ 09Ch ;# ">
+"1195
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h: 1195: __asm("EECON2 equ 09Dh");
+[; <" EECON2 equ 09Dh ;# ">
+"6 B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c: 6: eeprom_write(unsigned char addr, unsigned char value)
+[v _eeprom_write `(v ~T0 @X0 1 ef2`uc`uc ]
+"7
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c: 7: {
+{
+[e :U _eeprom_write ]
+"6
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c: 6: eeprom_write(unsigned char addr, unsigned char value)
+[v _addr `uc ~T0 @X0 1 r1 ]
+[v _value `uc ~T0 @X0 1 r2 ]
+"7
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c: 7: {
+[f ]
+"8
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c: 8:  do{ while (EECON1bits.WR) { continue; } EEADR = (addr); EEDATA = (value); EECON1 &= 0x3F; STATUSbits.CARRY = 0; if (INTCONbits.GIE) { STATUSbits.CARRY = 1; } INTCONbits.GIE = 0; EECON1bits.WREN = 1; EECON2 = 0x55; EECON2 = 0xAA; EECON1bits.WR = 1; EECON1bits.WREN = 0; if (STATUSbits.CARRY) { INTCONbits.GIE = 1; } } while (0);
+[e :U 59 ]
+{
+[e $U 60  ]
+[e :U 61 ]
+{
+[e $U 60  ]
+}
+[e :U 60 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 61  ]
+[e :U 62 ]
+[e = _EEADR _addr ]
+[e = _EEDATA _value ]
+[e =& _EECON1 -> -> 63 `i `Vuc ]
+[e = . . _STATUSbits 2 0 -> -> 0 `i `uc ]
+[e $ ! != -> . . _INTCONbits 0 7 `i -> 0 `i 63  ]
+{
+[e = . . _STATUSbits 2 0 -> -> 1 `i `uc ]
+}
+[e :U 63 ]
+[e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+[e = _EECON2 -> -> 85 `i `uc ]
+[e = _EECON2 -> -> 170 `i `uc ]
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+[e $ ! != -> . . _STATUSbits 2 0 `i -> 0 `i 64  ]
+{
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+}
+[e :U 64 ]
+}
+[e :U 58 ]
+"9
+[; ;B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c: 9: }
+[e :UE 56 ]
+}

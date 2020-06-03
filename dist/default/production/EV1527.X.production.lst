@@ -1,0 +1,2088 @@
+
+
+Microchip MPLAB XC8 Assembler V2.10 build 88905656 
+                                                                                               Mon Jun 01 20:11:03 2020
+
+Microchip MPLAB XC8 C Compiler v2.10 (Pro license) build 20190730164152 Og9f 
+     1                           	processor	16F630
+     2                           	opt	pw 120
+     3                           	opt	plic
+     4                           	psect	idataBANK0,global,class=CODE,delta=2
+     5                           	psect	strings,global,class=STRING,delta=2
+     6                           	psect	nvBANK0,global,class=BANK0,space=1,delta=1
+     7                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     8                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     9                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1
+    10                           	psect	clrtext,global,class=CODE,delta=2
+    11                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+    12                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    13                           	psect	maintext,global,class=CODE,split=1,delta=2
+    14                           	psect	text1,local,class=CODE,merge=1,delta=2
+    15                           	psect	text2,local,class=CODE,merge=1,delta=2
+    16                           	psect	intentry,global,class=CODE,delta=2
+    17                           	psect	text3,local,class=CODE,merge=1,delta=2
+    18                           	psect	text4,local,class=CODE,merge=1,delta=2
+    19                           	psect	text5,local,class=CODE,merge=1,delta=2,group=1
+    20                           	psect	text6,local,class=CODE,merge=1,delta=2
+    21                           	psect	text7,local,class=CODE,merge=1,delta=2
+    22                           	dabs	1,0x5E,2
+    23  0000                     
+    24                           ; Version 2.10
+    25                           ; Generated 31/07/2019 GMT
+    26                           ; 
+    27                           ; Copyright © 2019, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    28                           ; All rights reserved.
+    29                           ; 
+    30                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    31                           ; 
+    32                           ; Redistribution and use in source and binary forms, with or without modification, are
+    33                           ; permitted provided that the following conditions are met:
+    34                           ; 
+    35                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    36                           ;        conditions and the following disclaimer.
+    37                           ; 
+    38                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    39                           ;        of conditions and the following disclaimer in the documentation and/or other
+    40                           ;        materials provided with the distribution.
+    41                           ; 
+    42                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    43                           ;        software without specific prior written permission.
+    44                           ; 
+    45                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    46                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    47                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    48                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    49                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    50                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    51                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    52                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    53                           ; 
+    54                           ; 
+    55                           ; Code-generator required, PIC16F630 Definitions
+    56                           ; 
+    57                           ; SFR Addresses
+    58  0000                     	;# 
+    59  0001                     	;# 
+    60  0002                     	;# 
+    61  0003                     	;# 
+    62  0004                     	;# 
+    63  0005                     	;# 
+    64  0007                     	;# 
+    65  000A                     	;# 
+    66  000B                     	;# 
+    67  000C                     	;# 
+    68  000E                     	;# 
+    69  000E                     	;# 
+    70  000F                     	;# 
+    71  0010                     	;# 
+    72  0019                     	;# 
+    73  0081                     	;# 
+    74  0085                     	;# 
+    75  0087                     	;# 
+    76  008C                     	;# 
+    77  008E                     	;# 
+    78  0090                     	;# 
+    79  0095                     	;# 
+    80  0095                     	;# 
+    81  0096                     	;# 
+    82  0096                     	;# 
+    83  0099                     	;# 
+    84  009A                     	;# 
+    85  009A                     	;# 
+    86  009B                     	;# 
+    87  009C                     	;# 
+    88  009D                     	;# 
+    89  0000                     	;# 
+    90  0001                     	;# 
+    91  0002                     	;# 
+    92  0003                     	;# 
+    93  0004                     	;# 
+    94  0005                     	;# 
+    95  0007                     	;# 
+    96  000A                     	;# 
+    97  000B                     	;# 
+    98  000C                     	;# 
+    99  000E                     	;# 
+   100  000E                     	;# 
+   101  000F                     	;# 
+   102  0010                     	;# 
+   103  0019                     	;# 
+   104  0081                     	;# 
+   105  0085                     	;# 
+   106  0087                     	;# 
+   107  008C                     	;# 
+   108  008E                     	;# 
+   109  0090                     	;# 
+   110  0095                     	;# 
+   111  0095                     	;# 
+   112  0096                     	;# 
+   113  0096                     	;# 
+   114  0099                     	;# 
+   115  009A                     	;# 
+   116  009A                     	;# 
+   117  009B                     	;# 
+   118  009C                     	;# 
+   119  009D                     	;# 
+   120  0000                     	;# 
+   121  0001                     	;# 
+   122  0002                     	;# 
+   123  0003                     	;# 
+   124  0004                     	;# 
+   125  0005                     	;# 
+   126  0007                     	;# 
+   127  000A                     	;# 
+   128  000B                     	;# 
+   129  000C                     	;# 
+   130  000E                     	;# 
+   131  000E                     	;# 
+   132  000F                     	;# 
+   133  0010                     	;# 
+   134  0019                     	;# 
+   135  0081                     	;# 
+   136  0085                     	;# 
+   137  0087                     	;# 
+   138  008C                     	;# 
+   139  008E                     	;# 
+   140  0090                     	;# 
+   141  0095                     	;# 
+   142  0095                     	;# 
+   143  0096                     	;# 
+   144  0096                     	;# 
+   145  0099                     	;# 
+   146  009A                     	;# 
+   147  009A                     	;# 
+   148  009B                     	;# 
+   149  009C                     	;# 
+   150  009D                     	;# 
+   151  0000                     	;# 
+   152  0001                     	;# 
+   153  0002                     	;# 
+   154  0003                     	;# 
+   155  0004                     	;# 
+   156  0005                     	;# 
+   157  0007                     	;# 
+   158  000A                     	;# 
+   159  000B                     	;# 
+   160  000C                     	;# 
+   161  000E                     	;# 
+   162  000E                     	;# 
+   163  000F                     	;# 
+   164  0010                     	;# 
+   165  0019                     	;# 
+   166  0081                     	;# 
+   167  0085                     	;# 
+   168  0087                     	;# 
+   169  008C                     	;# 
+   170  008E                     	;# 
+   171  0090                     	;# 
+   172  0095                     	;# 
+   173  0095                     	;# 
+   174  0096                     	;# 
+   175  0096                     	;# 
+   176  0099                     	;# 
+   177  009A                     	;# 
+   178  009A                     	;# 
+   179  009B                     	;# 
+   180  009C                     	;# 
+   181  009D                     	;# 
+   182                           
+   183                           	psect	idataBANK0
+   184  0000                     __pidataBANK0:	
+   185                           
+   186                           	psect	strings
+   187  0318                     __pstrings:	
+   188  0318                     stringtab:	
+   189  0318                     __stringtab:	
+   190  0318                     stringcode:	
+   191                           ;	String table - string pointers are 1 byte each
+   192                           
+   193  0318                     stringdir:	
+   194  0318  3003               	movlw	high stringdir
+   195  0319  008A               	movwf	10
+   196  031A  0804               	movf	4,w
+   197  031B  0A84               	incf	4,f
+   198  031C  0782               	addwf	2,f
+   199  031D                     __stringbase:	
+   200  031D  3400               	retlw	0
+   201  031E                     __end_of__stringtab:	
+   202  031E                     _Shift:	
+   203  031E  3401               	retlw	1
+   204  031F  3402               	retlw	2
+   205  0320  3404               	retlw	4
+   206  0321  3408               	retlw	8
+   207  0322  3410               	retlw	16
+   208  0323  3420               	retlw	32
+   209  0324  3440               	retlw	64
+   210  0325  3480               	retlw	128
+   211  0326                     __end_of_Shift:	
+   212                           
+   213                           	psect	nvBANK0
+   214  0048                     __pnvBANK0:	
+   215  0048                     _Temp:	
+   216  0048                     	ds	1
+   217  0049                     _Mode:	
+   218  0049                     	ds	1
+   219  000E                     _TMR1	set	14
+   220  000B                     _INTCONbits	set	11
+   221  0003                     _STATUSbits	set	3
+   222  000B                     _INTCON	set	11
+   223  0005                     _PORTA	set	5
+   224  0007                     _PORTC	set	7
+   225  0003                     _STATUS	set	3
+   226  0010                     _T1CON	set	16
+   227  0005                     _PORTAbits	set	5
+   228  005F                     _GIE	set	95
+   229  0060                     _TMR1IF	set	96
+   230  0059                     _INTF	set	89
+   231  0058                     _RAIF	set	88
+   232  009D                     _EECON2	set	157
+   233  009A                     _EEDATA	set	154
+   234  009C                     _EECON1	set	156
+   235  009B                     _EEADR	set	155
+   236  009C                     _EECON1bits	set	156
+   237  0081                     _OPTION_REG	set	129
+   238  008C                     _PIE1	set	140
+   239  0096                     _IOCA	set	150
+   240  0095                     _WPUA	set	149
+   241  0087                     _TRISC	set	135
+   242  0085                     _TRISA	set	133
+   243                           
+   244                           ; #config settings
+   245  0000                     
+   246                           	psect	cinit
+   247  0010                     start_initialization:	
+   248  0010                     __initialization:	
+   249                           
+   250                           ;initializer for _Direction
+   251  0010  3002               	movlw	2
+   252  0011  00CA               	movwf	__pdataBANK0& (0+127)
+   253  0012  303B               	movlw	low __pbssBANK0
+   254                           
+   255                           ; Clear objects allocated to BANK0
+   256  0013  1383               	bcf	3,7	;select IRP bank0
+   257  0014  0084               	movwf	4
+   258  0015  3048               	movlw	low (__pbssBANK0+13)
+   259  0016  2334               	fcall	clear_ram0
+   260  0017                     end_of_initialization:	
+   261                           ;End of C runtime variable initialization code
+   262                           
+   263  0017                     __end_of__initialization:	
+   264  0017  0183               	clrf	3
+   265  0018  2A54               	ljmp	l1388	;jump to C main() function
+   266                           
+   267                           	psect	bssBANK0
+   268  003B                     __pbssBANK0:	
+   269  003B                     Remote@Code:	
+   270  003B                     	ds	5
+   271  0040                     Remote@Rise:	
+   272  0040                     	ds	2
+   273  0042                     Remote@Fall:	
+   274  0042                     	ds	2
+   275  0044                     Remote@Data:	
+   276  0044                     	ds	1
+   277  0045                     Remote@Check:	
+   278  0045                     	ds	1
+   279  0046                     Remote@Index:	
+   280  0046                     	ds	1
+   281  0047                     Remote@Preamble:	
+   282  0047                     	ds	1
+   283                           
+   284                           	psect	dataBANK0
+   285  004A                     __pdataBANK0:	
+   286  004A                     _Direction:	
+   287  004A                     	ds	1
+   288                           
+   289                           	psect	clrtext
+   290  0334                     clear_ram0:	
+   291                           ;	Called with FSR containing the base address, and
+   292                           ;	W with the last address+1
+   293                           
+   294  0334  0064               	clrwdt	;clear the watchdog before getting into this loop
+   295  0335                     clrloop0:	
+   296  0335  0180               	clrf	0	;clear RAM location pointed to by FSR
+   297  0336  0A84               	incf	4,f	;increment pointer
+   298  0337  0604               	xorwf	4,w	;XOR with final address
+   299  0338  1903               	btfsc	3,2	;have we reached the end yet?
+   300  0339  3400               	retlw	0	;all done for this memory range, return
+   301  033A  0604               	xorwf	4,w	;XOR again to restore value
+   302  033B  2B35               	goto	clrloop0	;do the next byte
+   303                           
+   304                           	psect	cstackCOMMON
+   305  0000                     __pcstackCOMMON:	
+   306  0000                     ??_eeprom_read:	
+   307  0000                     ??_eeprom_write:	
+   308                           ; 1 bytes @ 0x0
+   309                           
+   310  0000                     ??_Read_Timer:	
+   311                           ; 1 bytes @ 0x0
+   312                           
+   313  0000                     ??___wmul:	
+   314                           ; 1 bytes @ 0x0
+   315                           
+   316  0000                     ??i1_eeprom_read:	
+   317                           ; 1 bytes @ 0x0
+   318                           
+   319                           
+   320                           	psect	cstackBANK0
+   321  0020                     __pcstackBANK0:	
+   322                           ; 1 bytes @ 0x0
+   323                           
+   324  0020                     ?_eeprom_read:	
+   325  0020                     ?_eeprom_write:	
+   326                           ; 1 bytes @ 0x0
+   327                           
+   328  0020                     ?_LED_Blink:	
+   329                           ; 1 bytes @ 0x0
+   330                           
+   331  0020                     ??_LED_Blink:	
+   332                           ; 1 bytes @ 0x0
+   333                           
+   334  0020                     ?_Remote:	
+   335                           ; 1 bytes @ 0x0
+   336                           
+   337  0020                     ?_main:	
+   338                           ; 1 bytes @ 0x0
+   339                           
+   340  0020                     ?i1_eeprom_read:	
+   341                           ; 1 bytes @ 0x0
+   342                           
+   343  0020                     ?_Read_Timer:	
+   344                           ; 1 bytes @ 0x0
+   345                           
+   346  0020                     ?___wmul:	
+   347                           ; 2 bytes @ 0x0
+   348                           
+   349  0020                     eeprom_write@value:	
+   350                           ; 2 bytes @ 0x0
+   351                           
+   352  0020                     i1eeprom_read@addr:	
+   353                           ; 1 bytes @ 0x0
+   354                           
+   355  0020                     ___wmul@multiplier:	
+   356                           ; 1 bytes @ 0x0
+   357                           
+   358                           
+   359                           ; 2 bytes @ 0x0
+   360  0020                     	ds	1
+   361  0021                     eeprom_write@addr:	
+   362                           
+   363                           ; 1 bytes @ 0x1
+   364  0021                     	ds	1
+   365  0022                     Read_Timer@val:	
+   366  0022                     ___wmul@multiplicand:	
+   367                           ; 2 bytes @ 0x2
+   368                           
+   369                           
+   370                           ; 2 bytes @ 0x2
+   371  0022                     	ds	1
+   372  0023                     LED_Blink@blinks:	
+   373                           
+   374                           ; 1 bytes @ 0x3
+   375  0023                     	ds	1
+   376  0024                     Read_Timer@stat:	
+   377  0024                     LED_Blink@i:	
+   378                           ; 1 bytes @ 0x4
+   379                           
+   380  0024                     ___wmul@product:	
+   381                           ; 2 bytes @ 0x4
+   382                           
+   383                           
+   384                           ; 2 bytes @ 0x4
+   385  0024                     	ds	2
+   386  0026                     ??_Remote:	
+   387                           
+   388                           ; 1 bytes @ 0x6
+   389  0026                     	ds	8
+   390  002E                     _Remote$101:	
+   391                           
+   392                           ; 2 bytes @ 0xE
+   393  002E                     	ds	2
+   394  0030                     Remote@Half:	
+   395                           
+   396                           ; 1 bytes @ 0x10
+   397  0030                     	ds	1
+   398  0031                     Remote@Notice:	
+   399                           
+   400                           ; 1 bytes @ 0x11
+   401  0031                     	ds	1
+   402  0032                     Remote@End:	
+   403                           
+   404                           ; 1 bytes @ 0x12
+   405  0032                     	ds	1
+   406  0033                     Remote@i_104:	
+   407                           
+   408                           ; 2 bytes @ 0x13
+   409  0033                     	ds	2
+   410  0035                     Remote@i:	
+   411                           
+   412                           ; 2 bytes @ 0x15
+   413  0035                     	ds	2
+   414  0037                     eeprom_read@addr:	
+   415                           
+   416                           ; 1 bytes @ 0x17
+   417  0037                     	ds	1
+   418  0038                     ??_main:	
+   419                           
+   420                           ; 1 bytes @ 0x18
+   421  0038                     	ds	3
+   422                           
+   423                           	psect	maintext
+   424  0254                     __pmaintext:	
+   425 ;;
+   426 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   427 ;;
+   428 ;; *************** function _main *****************
+   429 ;; Defined at:
+   430 ;;		line 203 in file "main.c"
+   431 ;; Parameters:    Size  Location     Type
+   432 ;;		None
+   433 ;; Auto vars:     Size  Location     Type
+   434 ;;		None
+   435 ;; Return value:  Size  Location     Type
+   436 ;;                  1    wreg      void 
+   437 ;; Registers used:
+   438 ;;		wreg, status,2, status,0, pclath, cstack
+   439 ;; Tracked objects:
+   440 ;;		On entry : B00/0
+   441 ;;		On exit  : 100/0
+   442 ;;		Unchanged: 0/0
+   443 ;; Data sizes:     COMMON   BANK0
+   444 ;;      Params:         0       0
+   445 ;;      Locals:         0       0
+   446 ;;      Temps:          0       3
+   447 ;;      Totals:         0       3
+   448 ;;Total ram usage:        3 bytes
+   449 ;; Hardware stack levels required when called:    3
+   450 ;; This function calls:
+   451 ;;		_eeprom_read
+   452 ;; This function is called by:
+   453 ;;		Startup code after reset
+   454 ;; This function uses a non-reentrant model
+   455 ;;
+   456                           
+   457                           
+   458                           ;psect for function _main
+   459  0254                     _main:	
+   460  0254                     l1388:	
+   461                           ;incstack = 0
+   462                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   463                           
+   464                           
+   465                           ;main.c: 204:     PORTA=0;
+   466  0254  0185               	clrf	5	;volatile
+   467                           
+   468                           ;main.c: 205:     PORTC=0;
+   469  0255  0187               	clrf	7	;volatile
+   470                           
+   471                           ;main.c: 206:     TRISA=0b110110;
+   472  0256  3036               	movlw	54
+   473  0257  1683               	bsf	3,5	;RP0=1, select bank1
+   474  0258  0085               	movwf	5	;volatile
+   475                           
+   476                           ;main.c: 207:     TRISC=0b000000;
+   477  0259  0187               	clrf	7	;volatile
+   478                           
+   479                           ;main.c: 208:     WPUA=0b000110;
+   480  025A  3006               	movlw	6
+   481  025B  0095               	movwf	21	;volatile
+   482                           
+   483                           ;main.c: 209:     IOCA=0b110000;
+   484  025C  3030               	movlw	48
+   485  025D  0096               	movwf	22	;volatile
+   486                           
+   487                           ;main.c: 211:  INTCON=0b10011000;
+   488  025E  3098               	movlw	152
+   489  025F  008B               	movwf	11	;volatile
+   490                           
+   491                           ;main.c: 212:     PIE1=0b00000001;
+   492  0260  3001               	movlw	1
+   493  0261  008C               	movwf	12	;volatile
+   494                           
+   495                           ;main.c: 213:     OPTION_REG=0b00000000;
+   496  0262  0181               	clrf	1	;volatile
+   497                           
+   498                           ;main.c: 214:     Mode = eeprom_read(0x7F);
+   499  0263  307F               	movlw	127
+   500  0264  2309               	fcall	_eeprom_read
+   501  0265  1283               	bcf	3,5	;RP0=0, select bank0
+   502  0266  00C9               	movwf	_Mode	;volatile
+   503                           
+   504                           ;main.c: 215:     Temp = eeprom_read(0x7E);
+   505  0267  307E               	movlw	126
+   506  0268  2309               	fcall	_eeprom_read
+   507  0269  1283               	bcf	3,5	;RP0=0, select bank0
+   508  026A  00C8               	movwf	_Temp	;volatile
+   509  026B                     l1400:	
+   510                           
+   511                           ;main.c: 217:         if(PORTC!=0){
+   512  026B  0807               	movf	7,w	;volatile
+   513  026C  1903               	btfsc	3,2
+   514  026D  2A6B               	goto	l1400
+   515                           
+   516                           ;main.c: 218:             if (Mode>1) {
+   517  026E  3002               	movlw	2
+   518  026F  0249               	subwf	_Mode,w	;volatile
+   519  0270  1C03               	skipc
+   520  0271  2A81               	goto	l1410
+   521                           
+   522                           ;main.c: 219:                 _delay((unsigned long)((100)*(4000000/4000.0)));
+   523  0272  3082               	movlw	130
+   524  0273  00B9               	movwf	??_main+1
+   525  0274  30DD               	movlw	221
+   526  0275  00B8               	movwf	??_main
+   527  0276                     u1217:	
+   528  0276  0BB8               	decfsz	??_main,f
+   529  0277  2A76               	goto	u1217
+   530  0278  0BB9               	decfsz	??_main+1,f
+   531  0279  2A76               	goto	u1217
+   532  027A  2A7B               	nop2
+   533                           
+   534                           ;main.c: 220:                 Direction = ~Direction&3;
+   535  027B  30FF               	movlw	255
+   536  027C  1283               	bcf	3,5	;RP0=0, select bank0
+   537  027D  06CA               	xorwf	_Direction,f	;volatile
+   538  027E  3003               	movlw	3
+   539  027F  05CA               	andwf	_Direction,f	;volatile
+   540                           
+   541                           ;main.c: 221:             } else {
+   542  0280  2A8D               	goto	l1412
+   543  0281                     l1410:	
+   544                           
+   545                           ;main.c: 222:                 _delay((unsigned long)((20000)*(4000000/4000.0)));
+   546  0281  3066               	movlw	102
+   547  0282  00BA               	movwf	??_main+2
+   548  0283  3076               	movlw	118
+   549  0284  00B9               	movwf	??_main+1
+   550  0285  30C1               	movlw	193
+   551  0286  00B8               	movwf	??_main
+   552  0287                     u1227:	
+   553  0287  0BB8               	decfsz	??_main,f
+   554  0288  2A87               	goto	u1227
+   555  0289  0BB9               	decfsz	??_main+1,f
+   556  028A  2A87               	goto	u1227
+   557  028B  0BBA               	decfsz	??_main+2,f
+   558  028C  2A87               	goto	u1227
+   559  028D                     l1412:	
+   560  028D  1283               	bcf	3,5	;RP0=0, select bank0
+   561  028E  0187               	clrf	7	;volatile
+   562  028F  2A6B               	goto	l1400
+   563  0290                     __end_of_main:	
+   564                           
+   565                           	psect	text1
+   566  0309                     __ptext1:	
+   567 ;; *************** function _eeprom_read *****************
+   568 ;; Defined at:
+   569 ;;		line 6 in file "B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c"
+   570 ;; Parameters:    Size  Location     Type
+   571 ;;  addr            1    wreg     unsigned char 
+   572 ;; Auto vars:     Size  Location     Type
+   573 ;;  addr            1   23[BANK0 ] unsigned char 
+   574 ;; Return value:  Size  Location     Type
+   575 ;;                  1    wreg      unsigned char 
+   576 ;; Registers used:
+   577 ;;		wreg, status,2, status,0
+   578 ;; Tracked objects:
+   579 ;;		On entry : 0/100
+   580 ;;		On exit  : 100/100
+   581 ;;		Unchanged: 0/0
+   582 ;; Data sizes:     COMMON   BANK0
+   583 ;;      Params:         0       0
+   584 ;;      Locals:         0       1
+   585 ;;      Temps:          0       0
+   586 ;;      Totals:         0       1
+   587 ;;Total ram usage:        1 bytes
+   588 ;; Hardware stack levels used:    1
+   589 ;; Hardware stack levels required when called:    2
+   590 ;; This function calls:
+   591 ;;		Nothing
+   592 ;; This function is called by:
+   593 ;;		_main
+   594 ;; This function uses a non-reentrant model
+   595 ;;
+   596                           
+   597                           
+   598                           ;psect for function _eeprom_read
+   599  0309                     _eeprom_read:	
+   600                           
+   601                           ;incstack = 0
+   602                           ; Regs used in _eeprom_read: [wreg+status,2+status,0]
+   603                           ;eeprom_read@addr stored from wreg
+   604  0309  1283               	bcf	3,5	;RP0=0, select bank0
+   605  030A  00B7               	movwf	eeprom_read@addr
+   606  030B                     l244:	
+   607                           ;B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c: 6: eeprom_read(uns
+      +                          igned char addr);B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c: 7:
+      +                           {;B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c: 8:  do
+   608                           
+   609  030B  0064               	clrwdt	;# 
+   610  030C  1683               	bsf	3,5	;RP0=1, select bank1
+   611  030D  189C               	btfsc	28,1	;volsfr
+   612  030E  2B0B               	goto	l244
+   613                           
+   614                           ;B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c: 18:  return ( EEAD
+      +                          R = addr, EECON1 &= 0x3F, EECON1bits.RD = 1, EEDATA);
+   615  030F  1283               	bcf	3,5	;RP0=0, select bank0
+   616  0310  0837               	movf	eeprom_read@addr,w
+   617  0311  1683               	bsf	3,5	;RP0=1, select bank1
+   618  0312  009B               	movwf	27	;volatile
+   619  0313  303F               	movlw	63
+   620  0314  059C               	andwf	28,f	;volsfr
+   621  0315  141C               	bsf	28,0	;volsfr
+   622  0316  081A               	movf	26,w	;volatile
+   623  0317  0008               	return
+   624  0318                     __end_of_eeprom_read:	
+   625                           
+   626                           	psect	text2
+   627  0019                     __ptext2:	
+   628 ;; *************** function _Remote *****************
+   629 ;; Defined at:
+   630 ;;		line 60 in file "main.c"
+   631 ;; Parameters:    Size  Location     Type
+   632 ;;		None
+   633 ;; Auto vars:     Size  Location     Type
+   634 ;;  i               2   19[BANK0 ] int 
+   635 ;;  i               2   21[BANK0 ] int 
+   636 ;;  Half            1   16[BANK0 ] unsigned char 
+   637 ;;  End             1   18[BANK0 ] unsigned char 
+   638 ;;  Notice          1   17[BANK0 ] unsigned char 
+   639 ;; Return value:  Size  Location     Type
+   640 ;;                  1    wreg      void 
+   641 ;; Registers used:
+   642 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   643 ;; Tracked objects:
+   644 ;;		On entry : 0/0
+   645 ;;		On exit  : 100/0
+   646 ;;		Unchanged: 0/0
+   647 ;; Data sizes:     COMMON   BANK0
+   648 ;;      Params:         0       0
+   649 ;;      Locals:         0       9
+   650 ;;      Temps:          0       8
+   651 ;;      Totals:         0      17
+   652 ;;Total ram usage:       17 bytes
+   653 ;; Hardware stack levels used:    1
+   654 ;; Hardware stack levels required when called:    1
+   655 ;; This function calls:
+   656 ;;		_LED_Blink
+   657 ;;		_Read_Timer
+   658 ;;		___wmul
+   659 ;;		_eeprom_write
+   660 ;;		i1_eeprom_read
+   661 ;; This function is called by:
+   662 ;;		Interrupt level 1
+   663 ;; This function uses a non-reentrant model
+   664 ;;
+   665                           
+   666                           
+   667                           ;psect for function _Remote
+   668  0019                     _Remote:	
+   669                           
+   670                           ;main.c: 61:     static uint16_t Fall=0;;main.c: 62:  static uint16_t Rise=0;;main.c: 63
+      +                          :  static uint8_t Preamble = 0;;main.c: 64:  static uint8_t Index = 0;;main.c: 65:  stat
+      +                          ic uint8_t Code[5] = {0};;main.c: 66:     static uint8_t Check = 0;;main.c: 67:     stat
+      +                          ic uint8_t Data = 0;;main.c: 69:     if (RAIF) {
+   671  0019  1C0B               	btfss	11,0	;volatile
+   672  001A  29F1               	goto	i1l76
+   673                           
+   674                           ;main.c: 70:         if(PORTAbits.RA5||PORTAbits.RA4) {
+   675  001B  1A85               	btfsc	5,5	;volatile
+   676  001C  281F               	goto	i1l1176
+   677  001D  1E05               	btfss	5,4	;volatile
+   678  001E  28C5               	goto	i1l1230
+   679  001F                     i1l1176:	
+   680                           
+   681                           ;main.c: 71:             Fall = Read_Timer();
+   682  001F  22F7               	fcall	_Read_Timer
+   683  0020  0821               	movf	?_Read_Timer+1,w
+   684  0021  00C3               	movwf	Remote@Fall+1
+   685  0022  0820               	movf	?_Read_Timer,w
+   686  0023  00C2               	movwf	Remote@Fall
+   687                           
+   688                           ;main.c: 72:             if (Fall>(Rise*30) && Fall<(Rise*32)) {
+   689  0024  0841               	movf	Remote@Rise+1,w
+   690  0025  00A1               	movwf	___wmul@multiplier+1
+   691  0026  0840               	movf	Remote@Rise,w
+   692  0027  00A0               	movwf	___wmul@multiplier
+   693  0028  301E               	movlw	30
+   694  0029  00A2               	movwf	___wmul@multiplicand
+   695  002A  01A3               	clrf	___wmul@multiplicand+1
+   696  002B  22DE               	fcall	___wmul
+   697  002C  0843               	movf	Remote@Fall+1,w
+   698  002D  0221               	subwf	?___wmul+1,w
+   699  002E  1D03               	skipz
+   700  002F  2832               	goto	u72_25
+   701  0030  0842               	movf	Remote@Fall,w
+   702  0031  0220               	subwf	?___wmul,w
+   703  0032                     u72_25:	
+   704  0032  1803               	skipnc
+   705  0033  2857               	goto	i1l1196
+   706  0034  0841               	movf	Remote@Rise+1,w
+   707  0035  00A7               	movwf	??_Remote+1
+   708  0036  0840               	movf	Remote@Rise,w
+   709  0037  00A6               	movwf	??_Remote
+   710  0038  3005               	movlw	5
+   711  0039  00DF               	movwf	95
+   712  003A                     u73_25:	
+   713  003A  1003               	clrc
+   714  003B  0DA6               	rlf	??_Remote,f
+   715  003C  0DA7               	rlf	??_Remote+1,f
+   716  003D  0BDF               	decfsz	95,f
+   717  003E  283A               	goto	u73_25
+   718  003F  0827               	movf	??_Remote+1,w
+   719  0040  0243               	subwf	Remote@Fall+1,w
+   720  0041  1D03               	skipz
+   721  0042  2845               	goto	u74_25
+   722  0043  0826               	movf	??_Remote,w
+   723  0044  0242               	subwf	Remote@Fall,w
+   724  0045                     u74_25:	
+   725  0045  1803               	skipnc
+   726  0046  2857               	goto	i1l1196
+   727                           
+   728                           ;main.c: 73:                 Preamble = 1;
+   729  0047  01C7               	clrf	Remote@Preamble
+   730  0048  0AC7               	incf	Remote@Preamble,f
+   731                           
+   732                           ;main.c: 74:              Index = 0;
+   733  0049  01C6               	clrf	Remote@Index
+   734                           
+   735                           ;main.c: 75:                 Code[3] = Rise&0xFF;
+   736  004A  0840               	movf	Remote@Rise,w
+   737  004B  00BE               	movwf	Remote@Code+3
+   738                           
+   739                           ;main.c: 76:                 Code[4] = (Rise>>8)|(PORTAbits.RA5?0b10000000:0);
+   740  004C  1A85               	btfsc	5,5	;volatile
+   741  004D  2850               	goto	i1l1192
+   742  004E  01AE               	clrf	_Remote$101
+   743  004F  2852               	goto	L1
+   744  0050                     i1l1192:	
+   745  0050  3080               	movlw	128
+   746  0051  00AE               	movwf	_Remote$101
+   747  0052                     L1:	
+   748  0052  01AF               	clrf	_Remote$101+1
+   749  0053  0841               	movf	Remote@Rise+1,w
+   750  0054  042E               	iorwf	_Remote$101,w
+   751  0055  00BF               	movwf	Remote@Code+4
+   752                           
+   753                           ;main.c: 77:             } else if (Preamble) {
+   754  0056  2A46               	goto	i1l1384
+   755  0057                     i1l1196:	
+   756  0057  0847               	movf	Remote@Preamble,w
+   757  0058  1903               	btfsc	3,2
+   758  0059  2A46               	goto	i1l1384
+   759                           
+   760                           ;main.c: 78:                 if (Fall>(Rise*2) && Fall<(Rise*4)) {
+   761  005A  0841               	movf	Remote@Rise+1,w
+   762  005B  00A7               	movwf	??_Remote+1
+   763  005C  0840               	movf	Remote@Rise,w
+   764  005D  00A6               	movwf	??_Remote
+   765  005E  1003               	clrc
+   766  005F  0DA6               	rlf	??_Remote,f
+   767  0060  0DA7               	rlf	??_Remote+1,f
+   768  0061  0843               	movf	Remote@Fall+1,w
+   769  0062  0227               	subwf	??_Remote+1,w
+   770  0063  1D03               	skipz
+   771  0064  2867               	goto	u77_25
+   772  0065  0842               	movf	Remote@Fall,w
+   773  0066  0226               	subwf	??_Remote,w
+   774  0067                     u77_25:	
+   775  0067  1803               	skipnc
+   776  0068  2881               	goto	i1l1206
+   777  0069  0841               	movf	Remote@Rise+1,w
+   778  006A  00A7               	movwf	??_Remote+1
+   779  006B  0840               	movf	Remote@Rise,w
+   780  006C  00A6               	movwf	??_Remote
+   781  006D  1003               	clrc
+   782  006E  0DA6               	rlf	??_Remote,f
+   783  006F  0DA7               	rlf	??_Remote+1,f
+   784  0070  1003               	clrc
+   785  0071  0DA6               	rlf	??_Remote,f
+   786  0072  0DA7               	rlf	??_Remote+1,f
+   787  0073  0827               	movf	??_Remote+1,w
+   788  0074  0243               	subwf	Remote@Fall+1,w
+   789  0075  1D03               	skipz
+   790  0076  2879               	goto	u78_25
+   791  0077  0826               	movf	??_Remote,w
+   792  0078  0242               	subwf	Remote@Fall,w
+   793  0079                     u78_25:	
+   794  0079  1803               	skipnc
+   795  007A  2881               	goto	i1l1206
+   796                           
+   797                           ;main.c: 79:                     if (Index<23) {
+   798  007B  3017               	movlw	23
+   799  007C  0246               	subwf	Remote@Index,w
+   800  007D  1803               	skipnc
+   801  007E  2A46               	goto	i1l1384
+   802  007F                     i1l1204:	
+   803                           
+   804                           ;main.c: 80:                         Index++;
+   805  007F  0AC6               	incf	Remote@Index,f
+   806                           
+   807                           ;main.c: 82:                 } else if ((Fall*2)<Rise && (Fall*4)>Rise) {
+   808                           
+   809                           ;main.c: 81:                     }
+   810  0080  2A46               	goto	i1l1384
+   811  0081                     i1l1206:	
+   812  0081  0843               	movf	Remote@Fall+1,w
+   813  0082  00A7               	movwf	??_Remote+1
+   814  0083  0842               	movf	Remote@Fall,w
+   815  0084  00A6               	movwf	??_Remote
+   816  0085  1003               	clrc
+   817  0086  0DA6               	rlf	??_Remote,f
+   818  0087  0DA7               	rlf	??_Remote+1,f
+   819  0088  0841               	movf	Remote@Rise+1,w
+   820  0089  0227               	subwf	??_Remote+1,w
+   821  008A  1D03               	skipz
+   822  008B  288E               	goto	u80_25
+   823  008C  0840               	movf	Remote@Rise,w
+   824  008D  0226               	subwf	??_Remote,w
+   825  008E                     u80_25:	
+   826  008E  1803               	skipnc
+   827  008F  28C2               	goto	i1l1228
+   828  0090  0843               	movf	Remote@Fall+1,w
+   829  0091  00A7               	movwf	??_Remote+1
+   830  0092  0842               	movf	Remote@Fall,w
+   831  0093  00A6               	movwf	??_Remote
+   832  0094  1003               	clrc
+   833  0095  0DA6               	rlf	??_Remote,f
+   834  0096  0DA7               	rlf	??_Remote+1,f
+   835  0097  1003               	clrc
+   836  0098  0DA6               	rlf	??_Remote,f
+   837  0099  0DA7               	rlf	??_Remote+1,f
+   838  009A  0827               	movf	??_Remote+1,w
+   839  009B  0241               	subwf	Remote@Rise+1,w
+   840  009C  1D03               	skipz
+   841  009D  28A0               	goto	u81_25
+   842  009E  0826               	movf	??_Remote,w
+   843  009F  0240               	subwf	Remote@Rise,w
+   844  00A0                     u81_25:	
+   845  00A0  1803               	skipnc
+   846  00A1  28C2               	goto	i1l1228
+   847                           
+   848                           ;main.c: 83:                     if (Index<8){
+   849  00A2  3008               	movlw	8
+   850  00A3  0246               	subwf	Remote@Index,w
+   851  00A4  1803               	skipnc
+   852  00A5  28AC               	goto	i1l1216
+   853                           
+   854                           ;main.c: 84:                         Code[2] |= Shift[Index];
+   855  00A6  0846               	movf	Remote@Index,w
+   856  00A7  3E01               	addlw	low ((_Shift-__stringbase)| (0+32768))
+   857  00A8  0084               	movwf	4
+   858  00A9  2318               	fcall	stringdir
+   859  00AA  04BD               	iorwf	Remote@Code+2,f
+   860  00AB  287F               	goto	i1l1204
+   861  00AC                     i1l1216:	
+   862  00AC  3010               	movlw	16
+   863  00AD  0246               	subwf	Remote@Index,w
+   864  00AE  1803               	skipnc
+   865  00AF  28B7               	goto	i1l1222
+   866                           
+   867                           ;main.c: 87:                         Code[1] |= Shift[Index&7];
+   868  00B0  0846               	movf	Remote@Index,w
+   869  00B1  3907               	andlw	7
+   870  00B2  3E01               	addlw	low ((_Shift-__stringbase)| (0+32768))
+   871  00B3  0084               	movwf	4
+   872  00B4  2318               	fcall	stringdir
+   873  00B5  04BC               	iorwf	Remote@Code+1,f
+   874  00B6  287F               	goto	i1l1204
+   875  00B7                     i1l1222:	
+   876  00B7  3017               	movlw	23
+   877  00B8  0246               	subwf	Remote@Index,w
+   878  00B9  1803               	skipnc
+   879  00BA  2A46               	goto	i1l1384
+   880                           
+   881                           ;main.c: 90:                         Code[0] |= Shift[Index&7];
+   882  00BB  0846               	movf	Remote@Index,w
+   883  00BC  3907               	andlw	7
+   884  00BD  3E01               	addlw	low ((_Shift-__stringbase)| (0+32768))
+   885  00BE  0084               	movwf	4
+   886  00BF  2318               	fcall	stringdir
+   887  00C0  04BB               	iorwf	Remote@Code,f
+   888  00C1  287F               	goto	i1l1204
+   889  00C2                     i1l1228:	
+   890                           
+   891                           ;main.c: 94:                     Preamble = 0;
+   892  00C2  01C7               	clrf	Remote@Preamble
+   893                           
+   894                           ;main.c: 95:                     Index = 0;
+   895  00C3  01C6               	clrf	Remote@Index
+   896  00C4  2A46               	goto	i1l1384
+   897  00C5                     i1l1230:	
+   898                           
+   899                           ;main.c: 99:             Rise = Read_Timer();
+   900  00C5  22F7               	fcall	_Read_Timer
+   901  00C6  0821               	movf	?_Read_Timer+1,w
+   902  00C7  00C1               	movwf	Remote@Rise+1
+   903  00C8  0820               	movf	?_Read_Timer,w
+   904  00C9  00C0               	movwf	Remote@Rise
+   905                           
+   906                           ;main.c: 100:             if (Index==23) {
+   907  00CA  3017               	movlw	23
+   908  00CB  0646               	xorwf	Remote@Index,w
+   909  00CC  1D03               	btfss	3,2
+   910  00CD  29DC               	goto	i1l1336
+   911                           
+   912                           ;main.c: 101:                 if (Code[2]<64) {
+   913  00CE  3040               	movlw	64
+   914  00CF  023D               	subwf	Remote@Code+2,w
+   915                           
+   916                           ;main.c: 102:                     if (Rise<(Fall*2) && Fall<(Rise*2)) {
+   917  00D0  0843               	movf	Remote@Fall+1,w
+   918  00D1  00A7               	movwf	??_Remote+1
+   919  00D2  0842               	movf	Remote@Fall,w
+   920  00D3  00A6               	movwf	??_Remote
+   921  00D4  1803               	skipnc
+   922  00D5  28EF               	goto	L7
+   923  00D6  1003               	clrc
+   924  00D7  0DA6               	rlf	??_Remote,f
+   925  00D8  0DA7               	rlf	??_Remote+1,f
+   926  00D9  0827               	movf	??_Remote+1,w
+   927  00DA  0241               	subwf	Remote@Rise+1,w
+   928  00DB  1D03               	skipz
+   929  00DC  28DF               	goto	u87_25
+   930  00DD  0826               	movf	??_Remote,w
+   931  00DE  0240               	subwf	Remote@Rise,w
+   932  00DF                     u87_25:	
+   933  00DF  1803               	skipnc
+   934  00E0  290C               	goto	i1l1248
+   935  00E1  0841               	movf	Remote@Rise+1,w
+   936  00E2  00A7               	movwf	??_Remote+1
+   937  00E3  0840               	movf	Remote@Rise,w
+   938  00E4  00A6               	movwf	??_Remote
+   939  00E5  1003               	clrc
+   940  00E6  0DA6               	rlf	??_Remote,f
+   941  00E7  0DA7               	rlf	??_Remote+1,f
+   942  00E8  0827               	movf	??_Remote+1,w
+   943  00E9  0243               	subwf	Remote@Fall+1,w
+   944  00EA  1D03               	skipz
+   945  00EB  290A               	goto	u90_25
+   946  00EC  0826               	movf	??_Remote,w
+   947  00ED  0242               	subwf	Remote@Fall,w
+   948  00EE  290A               	goto	u90_25
+   949  00EF                     L7:	
+   950                           ;main.c: 106:                     if ((Fall*2)<Rise && (Fall*4)>Rise) {
+   951                           
+   952  00EF  1003               	clrc
+   953  00F0  0DA6               	rlf	??_Remote,f
+   954  00F1  0DA7               	rlf	??_Remote+1,f
+   955  00F2  0841               	movf	Remote@Rise+1,w
+   956  00F3  0227               	subwf	??_Remote+1,w
+   957  00F4  1D03               	skipz
+   958  00F5  28F8               	goto	u89_25
+   959  00F6  0840               	movf	Remote@Rise,w
+   960  00F7  0226               	subwf	??_Remote,w
+   961  00F8                     u89_25:	
+   962  00F8  1803               	skipnc
+   963  00F9  290C               	goto	i1l1248
+   964  00FA  0843               	movf	Remote@Fall+1,w
+   965  00FB  00A7               	movwf	??_Remote+1
+   966  00FC  0842               	movf	Remote@Fall,w
+   967  00FD  00A6               	movwf	??_Remote
+   968  00FE  1003               	clrc
+   969  00FF  0DA6               	rlf	??_Remote,f
+   970  0100  0DA7               	rlf	??_Remote+1,f
+   971  0101  1003               	clrc
+   972  0102  0DA6               	rlf	??_Remote,f
+   973  0103  0DA7               	rlf	??_Remote+1,f
+   974  0104  0827               	movf	??_Remote+1,w
+   975  0105  0241               	subwf	Remote@Rise+1,w
+   976  0106  1D03               	skipz
+   977  0107  290A               	goto	u90_25
+   978  0108  0826               	movf	??_Remote,w
+   979  0109  0240               	subwf	Remote@Rise,w
+   980  010A                     u90_25:	
+   981  010A  1C03               	btfss	3,0
+   982                           
+   983                           ;main.c: 103:                         Code[2] |= 0b10000000;
+   984  010B  17BD               	bsf	Remote@Code+2,7
+   985  010C                     i1l1248:	
+   986                           
+   987                           ;main.c: 110:                 Check = 0;
+   988  010C  01C5               	clrf	Remote@Check
+   989                           
+   990                           ;main.c: 111:                 uint8_t Half = Code[2]&0x0F;
+   991  010D  083D               	movf	Remote@Code+2,w
+   992  010E  00B0               	movwf	Remote@Half
+   993  010F  300F               	movlw	15
+   994  0110  05B0               	andwf	Remote@Half,f
+   995                           
+   996                           ;main.c: 112:                 for(int i=0;i<0x7C;i=i+5) {
+   997  0111  01B5               	clrf	Remote@i
+   998  0112  01B6               	clrf	Remote@i+1
+   999  0113                     i1l1260:	
+  1000                           
+  1001                           ;main.c: 113:                     if (eeprom_read(i+4)==Code[4]) {
+  1002  0113  1283               	bcf	3,5	;RP0=0, select bank0
+  1003  0114  0835               	movf	Remote@i,w
+  1004  0115  3E04               	addlw	4
+  1005  0116  2326               	fcall	i1_eeprom_read
+  1006  0117  1283               	bcf	3,5	;RP0=0, select bank0
+  1007  0118  063F               	xorwf	Remote@Code+4,w
+  1008  0119  1D03               	skipz
+  1009  011A  2968               	goto	i1l105
+  1010                           
+  1011                           ;main.c: 114:                         if (eeprom_read(i+3)<Code[3]+1&&eeprom_read(i+3)>C
+      +                          ode[3]-1) {
+  1012  011B  083E               	movf	Remote@Code+3,w
+  1013  011C  3E01               	addlw	1
+  1014  011D  00A6               	movwf	??_Remote
+  1015  011E  3000               	movlw	0
+  1016  011F  1803               	skipnc
+  1017  0120  3001               	movlw	1
+  1018  0121  00A7               	movwf	??_Remote+1
+  1019  0122  0835               	movf	Remote@i,w
+  1020  0123  3E03               	addlw	3
+  1021  0124  2326               	fcall	i1_eeprom_read
+  1022  0125  1283               	bcf	3,5	;RP0=0, select bank0
+  1023  0126  00A8               	movwf	??_Remote+2
+  1024  0127  0827               	movf	??_Remote+1,w
+  1025  0128  3A80               	xorlw	128
+  1026  0129  3C80               	sublw	128
+  1027  012A  1D03               	skipz
+  1028  012B  292E               	goto	u92_25
+  1029  012C  0826               	movf	??_Remote,w
+  1030  012D  0228               	subwf	??_Remote+2,w
+  1031  012E                     u92_25:	
+  1032  012E  1803               	skipnc
+  1033  012F  2968               	goto	i1l105
+  1034  0130  1283               	bcf	3,5	;RP0=0, select bank0
+  1035  0131  0835               	movf	Remote@i,w
+  1036  0132  3E03               	addlw	3
+  1037  0133  2326               	fcall	i1_eeprom_read
+  1038  0134  1283               	bcf	3,5	;RP0=0, select bank0
+  1039  0135  00A6               	movwf	??_Remote
+  1040  0136  083E               	movf	Remote@Code+3,w
+  1041  0137  3EFF               	addlw	255
+  1042  0138  00A7               	movwf	??_Remote+1
+  1043  0139  30FF               	movlw	255
+  1044  013A  1803               	skipnc
+  1045  013B  3000               	movlw	0
+  1046  013C  00A8               	movwf	??_Remote+2
+  1047  013D  3A80               	xorlw	128
+  1048  013E  00A9               	movwf	??_Remote+3
+  1049  013F  3080               	movlw	128
+  1050  0140  0229               	subwf	??_Remote+3,w
+  1051  0141  1D03               	skipz
+  1052  0142  2945               	goto	u93_25
+  1053  0143  0826               	movf	??_Remote,w
+  1054  0144  0227               	subwf	??_Remote+1,w
+  1055  0145                     u93_25:	
+  1056  0145  1803               	skipnc
+  1057  0146  2968               	goto	i1l105
+  1058                           
+  1059                           ;main.c: 115:                             if (eeprom_read(i+2)==Code[2]&&eeprom_read(i+1
+      +                          )==Code[1]) {
+  1060  0147  1283               	bcf	3,5	;RP0=0, select bank0
+  1061  0148  0835               	movf	Remote@i,w
+  1062  0149  3E02               	addlw	2
+  1063  014A  2326               	fcall	i1_eeprom_read
+  1064  014B  1283               	bcf	3,5	;RP0=0, select bank0
+  1065  014C  063D               	xorwf	Remote@Code+2,w
+  1066  014D  1D03               	skipz
+  1067  014E  2968               	goto	i1l105
+  1068  014F  0835               	movf	Remote@i,w
+  1069  0150  3E01               	addlw	1
+  1070  0151  2326               	fcall	i1_eeprom_read
+  1071  0152  1283               	bcf	3,5	;RP0=0, select bank0
+  1072  0153  063C               	xorwf	Remote@Code+1,w
+  1073  0154  1D03               	skipz
+  1074  0155  2968               	goto	i1l105
+  1075                           
+  1076                           ;main.c: 116:                                 if (eeprom_read(i)==Code[0]) {
+  1077  0156  0835               	movf	Remote@i,w
+  1078  0157  2326               	fcall	i1_eeprom_read
+  1079  0158  1283               	bcf	3,5	;RP0=0, select bank0
+  1080  0159  063B               	xorwf	Remote@Code,w
+  1081  015A  1D03               	skipz
+  1082  015B  295F               	goto	i1l1276
+  1083                           
+  1084                           ;main.c: 117:                                     Check = 1;
+  1085  015C  01C5               	clrf	Remote@Check
+  1086  015D  0AC5               	incf	Remote@Check,f
+  1087                           
+  1088                           ;main.c: 118:                                     break;
+  1089  015E  2978               	goto	i1l104
+  1090  015F                     i1l1276:	
+  1091  015F  0835               	movf	Remote@i,w
+  1092  0160  2326               	fcall	i1_eeprom_read
+  1093  0161  390F               	andlw	15
+  1094  0162  1283               	bcf	3,5	;RP0=0, select bank0
+  1095  0163  0630               	xorwf	Remote@Half,w
+  1096  0164  1D03               	skipz
+  1097  0165  2968               	goto	i1l105
+  1098                           
+  1099                           ;main.c: 120:                                     Check = 2;
+  1100  0166  3002               	movlw	2
+  1101  0167  00C5               	movwf	Remote@Check
+  1102  0168                     i1l105:	
+  1103                           ;main.c: 124:                     }
+  1104                           
+  1105                           ;main.c: 122:                             }
+  1106                           
+  1107                           
+  1108                           ;main.c: 125:                 } if (PORTAbits.RA1) {
+  1109  0168  3005               	movlw	5
+  1110  0169  1283               	bcf	3,5	;RP0=0, select bank0
+  1111  016A  07B5               	addwf	Remote@i,f
+  1112  016B  1803               	skipnc
+  1113  016C  0AB6               	incf	Remote@i+1,f
+  1114  016D  0836               	movf	Remote@i+1,w
+  1115  016E  3A80               	xorlw	128
+  1116  016F  00DF               	movwf	95
+  1117  0170  3080               	movlw	128
+  1118  0171  025F               	subwf	95,w
+  1119  0172  1D03               	skipz
+  1120  0173  2976               	goto	u98_25
+  1121  0174  307C               	movlw	124
+  1122  0175  0235               	subwf	Remote@i,w
+  1123  0176                     u98_25:	
+  1124  0176  1C03               	skipc
+  1125  0177  2913               	goto	i1l1260
+  1126  0178                     i1l104:	
+  1127  0178  1283               	bcf	3,5	;RP0=0, select bank0
+  1128  0179  1C85               	btfss	5,1	;volatile
+  1129  017A  29A6               	goto	i1l1308
+  1130                           
+  1131                           ;main.c: 126:                     if (Check>0) {
+  1132  017B  0845               	movf	Remote@Check,w
+  1133  017C  1903               	btfsc	3,2
+  1134  017D  29DA               	goto	L6
+  1135                           
+  1136                           ;main.c: 127:                         Index++;
+  1137  017E  0AC6               	incf	Remote@Index,f
+  1138                           
+  1139                           ;main.c: 128:                         Data = (Code[2]>>4);
+  1140  017F  0E3D               	swapf	Remote@Code+2,w
+  1141  0180  390F               	andlw	15
+  1142  0181  00C4               	movwf	Remote@Data
+  1143                           
+  1144                           ;main.c: 129:                         if (Mode==0) {
+  1145  0182  0849               	movf	_Mode,w	;volatile
+  1146  0183  1D03               	btfss	3,2
+  1147  0184  299D               	goto	i1l1300
+  1148                           
+  1149                           ;main.c: 131:                                 if (Data!=PORTC&&PORTC!=0) {
+  1150  0185  0844               	movf	Remote@Data,w
+  1151  0186  0607               	xorwf	7,w	;volatile
+  1152  0187  1903               	skipnz
+  1153  0188  299A               	goto	i1l1298
+  1154  0189  0807               	movf	7,w	;volatile
+  1155  018A  1903               	btfsc	3,2
+  1156  018B  299A               	goto	i1l1298
+  1157                           
+  1158                           ;main.c: 132:                                     PORTC = 0;
+  1159  018C  0187               	clrf	7	;volatile
+  1160                           
+  1161                           ;main.c: 133:                                     _delay((unsigned long)((2000)*(4000000
+      +                          /4000.0)));
+  1162  018D  300B               	movlw	11
+  1163  018E  00A8               	movwf	??_Remote+2
+  1164  018F  3026               	movlw	38
+  1165  0190  00A7               	movwf	??_Remote+1
+  1166  0191  305D               	movlw	93
+  1167  0192  00A6               	movwf	??_Remote
+  1168  0193                     u123_27:	
+  1169  0193  0BA6               	decfsz	??_Remote,f
+  1170  0194  2993               	goto	u123_27
+  1171  0195  0BA7               	decfsz	??_Remote+1,f
+  1172  0196  2993               	goto	u123_27
+  1173  0197  0BA8               	decfsz	??_Remote+2,f
+  1174  0198  2993               	goto	u123_27
+  1175  0199  299A               	nop2
+  1176  019A                     i1l1298:	
+  1177  019A  1283               	bcf	3,5	;RP0=0, select bank0
+  1178  019B  0844               	movf	Remote@Data,w	;volatile
+  1179  019C  29A4               	goto	L2
+  1180  019D                     i1l1300:	
+  1181                           ;main.c: 136:                         } else if (Check&&Mode) {
+  1182                           
+  1183  019D  0845               	movf	Remote@Check,w
+  1184  019E  1903               	btfsc	3,2
+  1185  019F  29DC               	goto	i1l1336
+  1186  01A0  0849               	movf	_Mode,w	;volatile
+  1187  01A1  1903               	btfsc	3,2
+  1188  01A2  29DC               	goto	i1l1336
+  1189                           
+  1190                           ;main.c: 137:                             PORTC ^= Direction;
+  1191  01A3  084A               	movf	_Direction,w	;volatile
+  1192  01A4                     L2:	
+  1193  01A4  0687               	xorwf	7,f	;volatile
+  1194  01A5  29DC               	goto	i1l1336
+  1195  01A6                     i1l1308:	
+  1196                           ;main.c: 141:                         Index = 0;
+  1197                           
+  1198                           ;main.c: 140:                         Preamble = 0;
+  1199                           
+  1200  01A6  0845               	movf	Remote@Check,w
+  1201  01A7  1D03               	btfss	3,2
+  1202  01A8  29D7               	goto	i1l1330
+  1203                           
+  1204                           ;main.c: 144:                     if (Temp<0x78) {
+  1205  01A9  3078               	movlw	120
+  1206  01AA  0248               	subwf	_Temp,w	;volatile
+  1207  01AB  1803               	skipnc
+  1208  01AC  29D0               	goto	i1l1328
+  1209                           
+  1210                           ;main.c: 145:                         for (int i=0;i<5;i++) {
+  1211  01AD  01B3               	clrf	Remote@i_104
+  1212  01AE  01B4               	clrf	Remote@i_104+1
+  1213                           
+  1214                           ;main.c: 146:                             eeprom_write(Temp++,Code[i]);
+  1215  01AF  1283               	bcf	3,5	;RP0=0, select bank0
+  1216  01B0                     L8:	
+  1217  01B0  0833               	movf	Remote@i_104,w
+  1218  01B1  3E3B               	addlw	(low (Remote@Code| 0))& (0+255)
+  1219  01B2  0084               	movwf	4
+  1220  01B3  1383               	bcf	3,7	;select IRP bank0
+  1221  01B4  0800               	movf	0,w
+  1222  01B5  00A0               	movwf	eeprom_write@value
+  1223  01B6  0848               	movf	_Temp,w	;volatile
+  1224  01B7  22C2               	fcall	_eeprom_write
+  1225  01B8  1283               	bcf	3,5	;RP0=0, select bank0
+  1226  01B9  0AC8               	incf	_Temp,f	;volatile
+  1227                           
+  1228                           ;main.c: 147:                         }
+  1229  01BA  0AB3               	incf	Remote@i_104,f
+  1230  01BB  1903               	skipnz
+  1231  01BC  0AB4               	incf	Remote@i_104+1,f
+  1232  01BD  0834               	movf	Remote@i_104+1,w
+  1233  01BE  3A80               	xorlw	128
+  1234  01BF  00DF               	movwf	95
+  1235  01C0  3080               	movlw	128
+  1236  01C1  025F               	subwf	95,w
+  1237  01C2  1D03               	skipz
+  1238  01C3  29C6               	goto	u108_25
+  1239  01C4  3005               	movlw	5
+  1240  01C5  0233               	subwf	Remote@i_104,w
+  1241  01C6                     u108_25:	
+  1242                           
+  1243                           ;main.c: 148:                         eeprom_write(0x7E,Temp);
+  1244  01C6  1283               	bcf	3,5	;RP0=0, select bank0
+  1245  01C7  1C03               	skipc
+  1246  01C8  29B0               	goto	L8
+  1247  01C9  0848               	movf	_Temp,w	;volatile
+  1248  01CA  00A0               	movwf	eeprom_write@value
+  1249  01CB  307E               	movlw	126
+  1250  01CC  22C2               	fcall	_eeprom_write
+  1251                           
+  1252                           ;main.c: 150:                         LED_Blink(1);
+  1253  01CD  3001               	movlw	1
+  1254  01CE  2290               	fcall	_LED_Blink
+  1255                           
+  1256                           ;main.c: 151:                     } else {
+  1257  01CF  29DC               	goto	i1l1336
+  1258  01D0                     i1l1328:	
+  1259                           
+  1260                           ;main.c: 152:                         LED_Blink(3);
+  1261  01D0  3003               	movlw	3
+  1262  01D1  2290               	fcall	_LED_Blink
+  1263  01D2  307E               	movlw	126
+  1264                           
+  1265                           ;main.c: 153:                         eeprom_write(0x7E,0);
+  1266  01D3  1283               	bcf	3,5	;RP0=0, select bank0
+  1267  01D4  01A0               	clrf	eeprom_write@value
+  1268  01D5  22C2               	fcall	_eeprom_write
+  1269  01D6  29DC               	goto	i1l1336
+  1270  01D7                     i1l1330:	
+  1271                           
+  1272                           ;main.c: 156:                     LED_Blink(2);
+  1273  01D7  3002               	movlw	2
+  1274  01D8  2290               	fcall	_LED_Blink
+  1275                           
+  1276                           ;main.c: 157:                     Preamble = 0;
+  1277  01D9  1283               	bcf	3,5	;RP0=0, select bank0
+  1278  01DA                     L6:	
+  1279  01DA  01C7               	clrf	Remote@Preamble
+  1280                           
+  1281                           ;main.c: 158:                     Index = 0;
+  1282  01DB  01C6               	clrf	Remote@Index
+  1283  01DC                     i1l1336:	
+  1284  01DC  3018               	movlw	24
+  1285  01DD  1283               	bcf	3,5	;RP0=0, select bank0
+  1286  01DE  0646               	xorwf	Remote@Index,w
+  1287  01DF  1D03               	btfss	3,2
+  1288  01E0  2A46               	goto	i1l1384
+  1289                           
+  1290                           ;main.c: 161:                 if (Mode==2) {
+  1291  01E1  3002               	movlw	2
+  1292  01E2  0649               	xorwf	_Mode,w	;volatile
+  1293  01E3  1D03               	btfss	3,2
+  1294  01E4  29E7               	goto	i1l1342
+  1295                           
+  1296                           ;main.c: 162:                     PORTC = Data;
+  1297  01E5  0844               	movf	Remote@Data,w
+  1298  01E6  29EF               	goto	L3
+  1299  01E7                     i1l1342:	
+  1300                           ;main.c: 163:                 } else if (Check&&Mode==3) {
+  1301                           
+  1302  01E7  0845               	movf	Remote@Check,w
+  1303  01E8  1903               	btfsc	3,2
+  1304  01E9  2A46               	goto	i1l1384
+  1305  01EA  3003               	movlw	3
+  1306  01EB  0649               	xorwf	_Mode,w	;volatile
+  1307  01EC  1D03               	btfss	3,2
+  1308  01ED  2A46               	goto	i1l1384
+  1309                           
+  1310                           ;main.c: 164:                     PORTC = Direction;
+  1311  01EE  084A               	movf	_Direction,w	;volatile
+  1312  01EF                     L3:	
+  1313  01EF  0087               	movwf	7	;volatile
+  1314  01F0  2A46               	goto	i1l1384
+  1315  01F1                     i1l76:	
+  1316  01F1  1C8B               	btfss	11,1	;volatile
+  1317  01F2  2A3E               	goto	i1l130
+  1318                           
+  1319                           ;main.c: 169:         PORTC = 0;
+  1320  01F3  0187               	clrf	7	;volatile
+  1321                           
+  1322                           ;main.c: 170:         _delay((unsigned long)((2500)*(4000000/4000.0)));
+  1323  01F4  300D               	movlw	13
+  1324  01F5  00A8               	movwf	??_Remote+2
+  1325  01F6  30AF               	movlw	175
+  1326  01F7  00A7               	movwf	??_Remote+1
+  1327  01F8  30B6               	movlw	182
+  1328  01F9  00A6               	movwf	??_Remote
+  1329  01FA                     u124_27:	
+  1330  01FA  0BA6               	decfsz	??_Remote,f
+  1331  01FB  29FA               	goto	u124_27
+  1332  01FC  0BA7               	decfsz	??_Remote+1,f
+  1333  01FD  29FA               	goto	u124_27
+  1334  01FE  0BA8               	decfsz	??_Remote+2,f
+  1335  01FF  29FA               	goto	u124_27
+  1336  0200  0000               	nop
+  1337                           
+  1338                           ;main.c: 171:         if (PORTAbits.RA2) {
+  1339  0201  1283               	bcf	3,5	;RP0=0, select bank0
+  1340  0202  1D05               	btfss	5,2	;volatile
+  1341  0203  2A0E               	goto	i1l131
+  1342                           
+  1343                           ;main.c: 172:             eeprom_write(0x7F,++Mode&3);
+  1344  0204  0AC9               	incf	_Mode,f	;volatile
+  1345  0205  0849               	movf	_Mode,w	;volatile
+  1346  0206  00A0               	movwf	eeprom_write@value
+  1347  0207  3003               	movlw	3
+  1348  0208  05A0               	andwf	eeprom_write@value,f
+  1349  0209  307F               	movlw	127
+  1350  020A  22C2               	fcall	_eeprom_write
+  1351                           
+  1352                           ;main.c: 173:             LED_Blink(Mode);
+  1353  020B  1283               	bcf	3,5	;RP0=0, select bank0
+  1354  020C  0849               	movf	_Mode,w	;volatile
+  1355  020D  2A3B               	goto	L4
+  1356  020E                     i1l131:	
+  1357                           ;main.c: 174:         } else {
+  1358                           
+  1359                           
+  1360                           ;main.c: 175:             RAIF=1;
+  1361  020E  140B               	bsf	11,0	;volatile
+  1362                           
+  1363                           ;main.c: 176:             PORTAbits.RA0 = 1;
+  1364  020F  1405               	bsf	5,0	;volatile
+  1365                           
+  1366                           ;main.c: 177:             _delay((unsigned long)((2500)*(4000000/4000.0)));
+  1367  0210  300D               	movlw	13
+  1368  0211  00A8               	movwf	??_Remote+2
+  1369  0212  30AF               	movlw	175
+  1370  0213  00A7               	movwf	??_Remote+1
+  1371  0214  30B6               	movlw	182
+  1372  0215  00A6               	movwf	??_Remote
+  1373  0216                     u125_27:	
+  1374  0216  0BA6               	decfsz	??_Remote,f
+  1375  0217  2A16               	goto	u125_27
+  1376  0218  0BA7               	decfsz	??_Remote+1,f
+  1377  0219  2A16               	goto	u125_27
+  1378  021A  0BA8               	decfsz	??_Remote+2,f
+  1379  021B  2A16               	goto	u125_27
+  1380  021C  0000               	nop
+  1381                           
+  1382                           ;main.c: 178:             uint8_t End = 0;
+  1383  021D  1283               	bcf	3,5	;RP0=0, select bank0
+  1384  021E  01B2               	clrf	Remote@End
+  1385                           
+  1386                           ;main.c: 180:             if (PORTAbits.RA2&&Temp>0) {
+  1387  021F  1D05               	btfss	5,2	;volatile
+  1388  0220  2A29               	goto	i1l1370
+  1389  0221  0848               	movf	_Temp,w	;volatile
+  1390  0222  1903               	btfsc	3,2
+  1391  0223  2A29               	goto	i1l1370
+  1392                           
+  1393                           ;main.c: 181:                 End = Temp-5;
+  1394  0224  0848               	movf	_Temp,w	;volatile
+  1395  0225  3EFB               	addlw	251
+  1396  0226  00B2               	movwf	Remote@End
+  1397                           
+  1398                           ;main.c: 182:                 Notice = 2;
+  1399  0227  3002               	movlw	2
+  1400  0228  2A2A               	goto	L5
+  1401  0229                     i1l1370:	
+  1402                           ;main.c: 183:             } else {
+  1403                           
+  1404                           
+  1405                           ;main.c: 184:                 Notice = 3;
+  1406  0229  3003               	movlw	3
+  1407  022A                     L5:	
+  1408  022A  00B1               	movwf	Remote@Notice
+  1409  022B                     i1l1374:	
+  1410                           
+  1411                           ;main.c: 186:             while (Temp>End) {
+  1412  022B  1283               	bcf	3,5	;RP0=0, select bank0
+  1413  022C  0848               	movf	_Temp,w	;volatile
+  1414  022D  0232               	subwf	Remote@End,w
+  1415  022E  1803               	btfsc	3,0
+  1416  022F  2A35               	goto	i1l1376
+  1417                           
+  1418                           ;main.c: 187:                 eeprom_write(--Temp,0x00);
+  1419  0230  01A0               	clrf	eeprom_write@value
+  1420  0231  03C8               	decf	_Temp,f	;volatile
+  1421  0232  0848               	movf	_Temp,w	;volatile
+  1422  0233  22C2               	fcall	_eeprom_write
+  1423  0234  2A2B               	goto	i1l1374
+  1424  0235                     i1l1376:	
+  1425                           
+  1426                           ;main.c: 189:             eeprom_write(0x7E,End);
+  1427  0235  0832               	movf	Remote@End,w
+  1428  0236  00A0               	movwf	eeprom_write@value
+  1429  0237  307E               	movlw	126
+  1430  0238  22C2               	fcall	_eeprom_write
+  1431                           
+  1432                           ;main.c: 190:             LED_Blink(Notice);
+  1433  0239  1283               	bcf	3,5	;RP0=0, select bank0
+  1434  023A  0831               	movf	Remote@Notice,w
+  1435  023B                     L4:	
+  1436  023B  2290               	fcall	_LED_Blink
+  1437  023C  108B               	bcf	11,1	;volatile
+  1438                           
+  1439                           ;main.c: 192:     } else if (TMR1IF) {
+  1440  023D  2A46               	goto	i1l1384
+  1441  023E                     i1l130:	
+  1442  023E  1C0C               	btfss	12,0	;volatile
+  1443  023F  2A46               	goto	i1l1384
+  1444                           
+  1445                           ;main.c: 193:         T1CON = 0;
+  1446  0240  0190               	clrf	16	;volatile
+  1447                           
+  1448                           ;main.c: 194:         TMR1 = 0;
+  1449  0241  018E               	clrf	14	;volatile
+  1450  0242  018F               	clrf	15	;volatile
+  1451                           
+  1452                           ;main.c: 195:         Preamble = 0;
+  1453  0243  01C7               	clrf	Remote@Preamble
+  1454                           
+  1455                           ;main.c: 196:         Index = 0;
+  1456  0244  01C6               	clrf	Remote@Index
+  1457                           
+  1458                           ;main.c: 197:         TMR1IF = 0;
+  1459  0245  100C               	bcf	12,0	;volatile
+  1460  0246                     i1l1384:	
+  1461                           
+  1462                           ;main.c: 199:     RAIF=0;
+  1463  0246  100B               	bcf	11,0	;volatile
+  1464                           
+  1465                           ;main.c: 200:     GIE=1;
+  1466  0247  178B               	bsf	11,7	;volatile
+  1467  0248  1283               	bcf	3,5	;RP0=0, select bank0
+  1468  0249  082D               	movf	??_Remote+7,w
+  1469  024A  00DF               	movwf	95
+  1470  024B  082C               	movf	??_Remote+6,w
+  1471  024C  008A               	movwf	10
+  1472  024D  082B               	movf	??_Remote+5,w
+  1473  024E  0084               	movwf	4
+  1474  024F  0E2A               	swapf	(??_Remote+4)^0,w
+  1475  0250  0083               	movwf	3
+  1476  0251  0EDE               	swapf	94,f
+  1477  0252  0E5E               	swapf	94,w
+  1478  0253  0009               	retfie
+  1479  0254                     __end_of_Remote:	
+  1480                           
+  1481                           	psect	intentry
+  1482  0004                     __pintentry:	
+  1483                           ;incstack = 0
+  1484                           ; Regs used in _Remote: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+  1485                           
+  1486  0004                     interrupt_function:	
+  1487  005E                     saved_w	set	btemp
+  1488  0004  00DE               	movwf	btemp
+  1489  0005  0E03               	swapf	3,w
+  1490  0006  1283               	bcf	3,5	;RP0=0, select bank0
+  1491  0007  00AA               	movwf	??_Remote+4
+  1492  0008  0804               	movf	4,w
+  1493  0009  00AB               	movwf	??_Remote+5
+  1494  000A  080A               	movf	10,w
+  1495  000B  00AC               	movwf	??_Remote+6
+  1496  000C  085F               	movf	btemp+1,w
+  1497  000D  00AD               	movwf	??_Remote+7
+  1498  000E  2819               	ljmp	_Remote
+  1499                           
+  1500                           	psect	text3
+  1501  0326                     __ptext3:	
+  1502 ;; *************** function i1_eeprom_read *****************
+  1503 ;; Defined at:
+  1504 ;;		line 6 in file "B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c"
+  1505 ;; Parameters:    Size  Location     Type
+  1506 ;;  addr            1    wreg     unsigned char 
+  1507 ;; Auto vars:     Size  Location     Type
+  1508 ;;  addr            1    0[BANK0 ] unsigned char 
+  1509 ;; Return value:  Size  Location     Type
+  1510 ;;                  1    wreg      unsigned char 
+  1511 ;; Registers used:
+  1512 ;;		wreg, status,2, status,0
+  1513 ;; Tracked objects:
+  1514 ;;		On entry : 100/0
+  1515 ;;		On exit  : 100/100
+  1516 ;;		Unchanged: 0/0
+  1517 ;; Data sizes:     COMMON   BANK0
+  1518 ;;      Params:         0       0
+  1519 ;;      Locals:         0       1
+  1520 ;;      Temps:          0       0
+  1521 ;;      Totals:         0       1
+  1522 ;;Total ram usage:        1 bytes
+  1523 ;; Hardware stack levels used:    1
+  1524 ;; This function calls:
+  1525 ;;		Nothing
+  1526 ;; This function is called by:
+  1527 ;;		_Remote
+  1528 ;; This function uses a non-reentrant model
+  1529 ;;
+  1530                           
+  1531                           
+  1532                           ;psect for function i1_eeprom_read
+  1533  0326                     i1_eeprom_read:	
+  1534                           
+  1535                           ;incstack = 0
+  1536                           ; Regs used in i1_eeprom_read: [wreg+status,2+status,0]
+  1537                           ;i1eeprom_read@addr stored from wreg
+  1538  0326  00A0               	movwf	i1eeprom_read@addr
+  1539  0327                     i1l244:	
+  1540                           ;B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c: 6: eeprom_read(uns
+      +                          igned char addr);B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c: 7:
+      +                           {;B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c: 8:  do
+  1541                           
+  1542  0327  0064               	clrwdt	;# 
+  1543  0328  1683               	bsf	3,5	;RP0=1, select bank1
+  1544  0329  189C               	btfsc	28,1	;volsfr
+  1545  032A  2B27               	goto	i1l244
+  1546                           
+  1547                           ;B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c: 18:  return ( EEAD
+      +                          R = addr, EECON1 &= 0x3F, EECON1bits.RD = 1, EEDATA);
+  1548  032B  1283               	bcf	3,5	;RP0=0, select bank0
+  1549  032C  0820               	movf	i1eeprom_read@addr,w
+  1550  032D  1683               	bsf	3,5	;RP0=1, select bank1
+  1551  032E  009B               	movwf	27	;volatile
+  1552  032F  303F               	movlw	63
+  1553  0330  059C               	andwf	28,f	;volsfr
+  1554  0331  141C               	bsf	28,0	;volsfr
+  1555  0332  081A               	movf	26,w	;volatile
+  1556  0333  0008               	return
+  1557  0334                     __end_ofi1_eeprom_read:	
+  1558                           
+  1559                           	psect	text4
+  1560  02C2                     __ptext4:	
+  1561 ;; *************** function _eeprom_write *****************
+  1562 ;; Defined at:
+  1563 ;;		line 6 in file "B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c"
+  1564 ;; Parameters:    Size  Location     Type
+  1565 ;;  addr            1    wreg     unsigned char 
+  1566 ;;  value           1    0[BANK0 ] unsigned char 
+  1567 ;; Auto vars:     Size  Location     Type
+  1568 ;;  addr            1    1[BANK0 ] unsigned char 
+  1569 ;; Return value:  Size  Location     Type
+  1570 ;;                  1    wreg      void 
+  1571 ;; Registers used:
+  1572 ;;		wreg, status,2, status,0
+  1573 ;; Tracked objects:
+  1574 ;;		On entry : 100/0
+  1575 ;;		On exit  : 100/100
+  1576 ;;		Unchanged: 0/0
+  1577 ;; Data sizes:     COMMON   BANK0
+  1578 ;;      Params:         0       1
+  1579 ;;      Locals:         0       1
+  1580 ;;      Temps:          0       0
+  1581 ;;      Totals:         0       2
+  1582 ;;Total ram usage:        2 bytes
+  1583 ;; Hardware stack levels used:    1
+  1584 ;; This function calls:
+  1585 ;;		Nothing
+  1586 ;; This function is called by:
+  1587 ;;		_Remote
+  1588 ;; This function uses a non-reentrant model
+  1589 ;;
+  1590                           
+  1591                           
+  1592                           ;psect for function _eeprom_write
+  1593  02C2                     _eeprom_write:	
+  1594                           
+  1595                           ;incstack = 0
+  1596                           ; Regs used in _eeprom_write: [wreg+status,2+status,0]
+  1597                           ;eeprom_write@addr stored from wreg
+  1598  02C2  00A1               	movwf	eeprom_write@addr
+  1599  02C3                     i1l264:	
+  1600                           ;B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c: 6: eeprom_write(u
+      +                          nsigned char addr, unsigned char value);B:\Program Files\Microchip\xc8\v2.10\pic\sources
+      +                          \c90\pic\__eewrite.c: 7: {;B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__ee
+      +                          write.c: 8:  do{ while (EECON1bits.WR) { continue; } EEADR = (addr); EEDATA = (value); E
+      +                          ECON1 &= 0x3F; STATUSbits.CARRY = 0; if (INTCONbits.GIE) { STATUSbits.CARRY = 1; } INTCO
+      +                          Nbits.GIE = 0; EECON1bits.WREN = 1; EECON2 = 0x55; EECON2 = 0xAA; EECON1bits.WR = 1; EEC
+      +                          ON1bits.WREN = 0; if (STATUSbits.CARRY) { INTCONbits.GIE = 1; } } while (0);
+  1601                           
+  1602  02C3  1683               	bsf	3,5	;RP0=1, select bank1
+  1603  02C4  189C               	btfsc	28,1	;volsfr
+  1604  02C5  2AC3               	goto	i1l264
+  1605  02C6  1283               	bcf	3,5	;RP0=0, select bank0
+  1606  02C7  0821               	movf	eeprom_write@addr,w
+  1607  02C8  1683               	bsf	3,5	;RP0=1, select bank1
+  1608  02C9  009B               	movwf	27	;volatile
+  1609  02CA  1283               	bcf	3,5	;RP0=0, select bank0
+  1610  02CB  0820               	movf	eeprom_write@value,w
+  1611  02CC  1683               	bsf	3,5	;RP0=1, select bank1
+  1612  02CD  009A               	movwf	26	;volatile
+  1613  02CE  303F               	movlw	63
+  1614  02CF  059C               	andwf	28,f	;volsfr
+  1615  02D0  1003               	bcf	3,0	;volatile
+  1616  02D1  1B8B               	btfsc	11,7	;volatile
+  1617  02D2  1403               	bsf	3,0	;volatile
+  1618  02D3  138B               	bcf	11,7	;volatile
+  1619  02D4  151C               	bsf	28,2	;volsfr
+  1620  02D5  3055               	movlw	85
+  1621  02D6  009D               	movwf	29	;volsfr
+  1622  02D7  30AA               	movlw	170
+  1623  02D8  009D               	movwf	29	;volsfr
+  1624  02D9  149C               	bsf	28,1	;volsfr
+  1625  02DA  111C               	bcf	28,2	;volsfr
+  1626  02DB  1803               	btfsc	3,0	;volatile
+  1627  02DC  178B               	bsf	11,7	;volatile
+  1628  02DD  0008               	return
+  1629  02DE                     __end_of_eeprom_write:	
+  1630                           
+  1631                           	psect	text5
+  1632  02DE                     __ptext5:	
+  1633 ;; *************** function ___wmul *****************
+  1634 ;; Defined at:
+  1635 ;;		line 15 in file "B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c"
+  1636 ;; Parameters:    Size  Location     Type
+  1637 ;;  multiplier      2    0[BANK0 ] unsigned int 
+  1638 ;;  multiplicand    2    2[BANK0 ] unsigned int 
+  1639 ;; Auto vars:     Size  Location     Type
+  1640 ;;  product         2    4[BANK0 ] unsigned int 
+  1641 ;; Return value:  Size  Location     Type
+  1642 ;;                  2    0[BANK0 ] unsigned int 
+  1643 ;; Registers used:
+  1644 ;;		wreg, status,2, status,0
+  1645 ;; Tracked objects:
+  1646 ;;		On entry : 100/0
+  1647 ;;		On exit  : 100/0
+  1648 ;;		Unchanged: 0/0
+  1649 ;; Data sizes:     COMMON   BANK0
+  1650 ;;      Params:         0       4
+  1651 ;;      Locals:         0       2
+  1652 ;;      Temps:          0       0
+  1653 ;;      Totals:         0       6
+  1654 ;;Total ram usage:        6 bytes
+  1655 ;; Hardware stack levels used:    1
+  1656 ;; This function calls:
+  1657 ;;		Nothing
+  1658 ;; This function is called by:
+  1659 ;;		_Remote
+  1660 ;; This function uses a non-reentrant model
+  1661 ;;
+  1662                           
+  1663                           
+  1664                           ;psect for function ___wmul
+  1665  02DE                     ___wmul:	
+  1666                           
+  1667                           ;incstack = 0
+  1668                           ; Regs used in ___wmul: [wreg+status,2+status,0]
+  1669  02DE  01A4               	clrf	___wmul@product
+  1670  02DF  01A5               	clrf	___wmul@product+1
+  1671  02E0                     i1l1152:	
+  1672  02E0  1C20               	btfss	___wmul@multiplier,0
+  1673  02E1  2AE8               	goto	i1l1156
+  1674  02E2  0822               	movf	___wmul@multiplicand,w
+  1675  02E3  07A4               	addwf	___wmul@product,f
+  1676  02E4  1803               	skipnc
+  1677  02E5  0AA5               	incf	___wmul@product+1,f
+  1678  02E6  0823               	movf	___wmul@multiplicand+1,w
+  1679  02E7  07A5               	addwf	___wmul@product+1,f
+  1680  02E8                     i1l1156:	
+  1681  02E8  1003               	clrc
+  1682  02E9  0DA2               	rlf	___wmul@multiplicand,f
+  1683  02EA  0DA3               	rlf	___wmul@multiplicand+1,f
+  1684  02EB  1003               	clrc
+  1685  02EC  0CA1               	rrf	___wmul@multiplier+1,f
+  1686  02ED  0CA0               	rrf	___wmul@multiplier,f
+  1687  02EE  0820               	movf	___wmul@multiplier,w
+  1688  02EF  0421               	iorwf	___wmul@multiplier+1,w
+  1689  02F0  1D03               	btfss	3,2
+  1690  02F1  2AE0               	goto	i1l1152
+  1691  02F2  0825               	movf	___wmul@product+1,w
+  1692  02F3  00A1               	movwf	?___wmul+1
+  1693  02F4  0824               	movf	___wmul@product,w
+  1694  02F5  00A0               	movwf	?___wmul
+  1695  02F6  0008               	return
+  1696  02F7                     __end_of___wmul:	
+  1697                           
+  1698                           	psect	text6
+  1699  02F7                     __ptext6:	
+  1700 ;; *************** function _Read_Timer *****************
+  1701 ;; Defined at:
+  1702 ;;		line 47 in file "main.c"
+  1703 ;; Parameters:    Size  Location     Type
+  1704 ;;		None
+  1705 ;; Auto vars:     Size  Location     Type
+  1706 ;;  val             2    2[BANK0 ] unsigned int 
+  1707 ;;  stat            1    4[BANK0 ] unsigned char 
+  1708 ;; Return value:  Size  Location     Type
+  1709 ;;                  2    0[BANK0 ] unsigned int 
+  1710 ;; Registers used:
+  1711 ;;		wreg, status,2
+  1712 ;; Tracked objects:
+  1713 ;;		On entry : 100/0
+  1714 ;;		On exit  : 100/0
+  1715 ;;		Unchanged: 0/0
+  1716 ;; Data sizes:     COMMON   BANK0
+  1717 ;;      Params:         0       2
+  1718 ;;      Locals:         0       3
+  1719 ;;      Temps:          0       0
+  1720 ;;      Totals:         0       5
+  1721 ;;Total ram usage:        5 bytes
+  1722 ;; Hardware stack levels used:    1
+  1723 ;; This function calls:
+  1724 ;;		Nothing
+  1725 ;; This function is called by:
+  1726 ;;		_Remote
+  1727 ;; This function uses a non-reentrant model
+  1728 ;;
+  1729                           
+  1730                           
+  1731                           ;psect for function _Read_Timer
+  1732  02F7                     _Read_Timer:	
+  1733                           
+  1734                           ;main.c: 48:         uint8_t stat;;main.c: 49:         uint16_t val;;main.c: 51:        
+      +                           T1CON = 0b00000000;
+  1735                           
+  1736                           ;incstack = 0
+  1737                           ; Regs used in _Read_Timer: [wreg+status,2]
+  1738  02F7  0190               	clrf	16	;volatile
+  1739                           
+  1740                           ;main.c: 52:         stat = STATUS;
+  1741  02F8  0803               	movf	3,w	;volatile
+  1742  02F9  00A4               	movwf	Read_Timer@stat
+  1743                           
+  1744                           ;main.c: 53:         val = TMR1;
+  1745  02FA  080F               	movf	15,w	;volatile
+  1746  02FB  00A3               	movwf	Read_Timer@val+1
+  1747  02FC  080E               	movf	14,w	;volatile
+  1748  02FD  00A2               	movwf	Read_Timer@val
+  1749                           
+  1750                           ;main.c: 54:         TMR1 = 0x0000;
+  1751  02FE  018E               	clrf	14	;volatile
+  1752  02FF  018F               	clrf	15	;volatile
+  1753                           
+  1754                           ;main.c: 55:         STATUS = stat;
+  1755  0300  0824               	movf	Read_Timer@stat,w
+  1756  0301  0083               	movwf	3	;volatile
+  1757                           
+  1758                           ;main.c: 56:         T1CON=0b00110001;
+  1759  0302  3031               	movlw	49
+  1760  0303  0090               	movwf	16	;volatile
+  1761                           
+  1762                           ;main.c: 57:         return val;
+  1763  0304  0823               	movf	Read_Timer@val+1,w
+  1764  0305  00A1               	movwf	?_Read_Timer+1
+  1765  0306  0822               	movf	Read_Timer@val,w
+  1766  0307  00A0               	movwf	?_Read_Timer
+  1767  0308  0008               	return
+  1768  0309                     __end_of_Read_Timer:	
+  1769                           
+  1770                           	psect	text7
+  1771  0290                     __ptext7:	
+  1772 ;; *************** function _LED_Blink *****************
+  1773 ;; Defined at:
+  1774 ;;		line 38 in file "main.c"
+  1775 ;; Parameters:    Size  Location     Type
+  1776 ;;  blinks          1    wreg     unsigned char 
+  1777 ;; Auto vars:     Size  Location     Type
+  1778 ;;  blinks          1    3[BANK0 ] unsigned char 
+  1779 ;;  i               2    4[BANK0 ] int 
+  1780 ;; Return value:  Size  Location     Type
+  1781 ;;                  1    wreg      void 
+  1782 ;; Registers used:
+  1783 ;;		wreg, status,2, status,0
+  1784 ;; Tracked objects:
+  1785 ;;		On entry : 0/100
+  1786 ;;		On exit  : 0/0
+  1787 ;;		Unchanged: 0/0
+  1788 ;; Data sizes:     COMMON   BANK0
+  1789 ;;      Params:         0       0
+  1790 ;;      Locals:         0       3
+  1791 ;;      Temps:          0       3
+  1792 ;;      Totals:         0       6
+  1793 ;;Total ram usage:        6 bytes
+  1794 ;; Hardware stack levels used:    1
+  1795 ;; This function calls:
+  1796 ;;		Nothing
+  1797 ;; This function is called by:
+  1798 ;;		_Remote
+  1799 ;; This function uses a non-reentrant model
+  1800 ;;
+  1801                           
+  1802                           
+  1803                           ;psect for function _LED_Blink
+  1804  0290                     _LED_Blink:	
+  1805                           
+  1806                           ;incstack = 0
+  1807                           ; Regs used in _LED_Blink: [wreg+status,2+status,0]
+  1808                           ;LED_Blink@blinks stored from wreg
+  1809  0290  1283               	bcf	3,5	;RP0=0, select bank0
+  1810  0291  00A3               	movwf	LED_Blink@blinks
+  1811                           
+  1812                           ;main.c: 39:     for (int i=0;i<blinks;i++) {
+  1813  0292  01A4               	clrf	LED_Blink@i
+  1814  0293  01A5               	clrf	LED_Blink@i+1
+  1815  0294                     i1l1110:	
+  1816  0294  0825               	movf	LED_Blink@i+1,w
+  1817  0295  3A80               	xorlw	128
+  1818  0296  00A0               	movwf	??_LED_Blink
+  1819  0297  3080               	movlw	128
+  1820  0298  0220               	subwf	??_LED_Blink,w
+  1821  0299  1D03               	skipz
+  1822  029A  2A9D               	goto	u61_25
+  1823  029B  0823               	movf	LED_Blink@blinks,w
+  1824  029C  0224               	subwf	LED_Blink@i,w
+  1825  029D                     u61_25:	
+  1826  029D  1803               	btfsc	3,0
+  1827  029E  0008               	return
+  1828                           
+  1829                           ;main.c: 40:         PORTAbits.RA0 = 1;
+  1830  029F  1283               	bcf	3,5	;RP0=0, select bank0
+  1831  02A0  1405               	bsf	5,0	;volatile
+  1832                           
+  1833                           ;main.c: 41:         _delay((unsigned long)((200)*(4000000/4000.0)));
+  1834  02A1  3002               	movlw	2
+  1835  02A2  00A2               	movwf	??_LED_Blink+2
+  1836  02A3  3004               	movlw	4
+  1837  02A4  00A1               	movwf	??_LED_Blink+1
+  1838  02A5  30BA               	movlw	186
+  1839  02A6  00A0               	movwf	??_LED_Blink
+  1840  02A7                     u126_27:	
+  1841  02A7  0BA0               	decfsz	??_LED_Blink,f
+  1842  02A8  2AA7               	goto	u126_27
+  1843  02A9  0BA1               	decfsz	??_LED_Blink+1,f
+  1844  02AA  2AA7               	goto	u126_27
+  1845  02AB  0BA2               	decfsz	??_LED_Blink+2,f
+  1846  02AC  2AA7               	goto	u126_27
+  1847  02AD  0000               	nop
+  1848                           
+  1849                           ;main.c: 42:         PORTAbits.RA0 = 0;
+  1850  02AE  1283               	bcf	3,5	;RP0=0, select bank0
+  1851  02AF  1005               	bcf	5,0	;volatile
+  1852                           
+  1853                           ;main.c: 43:         _delay((unsigned long)((200)*(4000000/4000.0)));
+  1854  02B0  3002               	movlw	2
+  1855  02B1  00A2               	movwf	??_LED_Blink+2
+  1856  02B2  3004               	movlw	4
+  1857  02B3  00A1               	movwf	??_LED_Blink+1
+  1858  02B4  30BA               	movlw	186
+  1859  02B5  00A0               	movwf	??_LED_Blink
+  1860  02B6                     u127_27:	
+  1861  02B6  0BA0               	decfsz	??_LED_Blink,f
+  1862  02B7  2AB6               	goto	u127_27
+  1863  02B8  0BA1               	decfsz	??_LED_Blink+1,f
+  1864  02B9  2AB6               	goto	u127_27
+  1865  02BA  0BA2               	decfsz	??_LED_Blink+2,f
+  1866  02BB  2AB6               	goto	u127_27
+  1867  02BC  0000               	nop
+  1868                           
+  1869                           ;main.c: 44:     }
+  1870  02BD  1283               	bcf	3,5	;RP0=0, select bank0
+  1871  02BE  0AA4               	incf	LED_Blink@i,f
+  1872  02BF  1903               	skipnz
+  1873  02C0  0AA5               	incf	LED_Blink@i+1,f
+  1874  02C1  2A94               	goto	i1l1110
+  1875  02C2                     __end_of_LED_Blink:	
+  1876  005E                     btemp	set	94	;btemp
+  1877  005E                     wtemp0	set	94
+
+
+Data Sizes:
+    Strings     0
+    Constant    8
+    Data        1
+    BSS         13
+    Persistent  2
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            62     27      43
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _Remote in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_eeprom_read
+
+Critical Paths under _Remote in BANK0
+
+    _Remote->_LED_Blink
+    _Remote->___wmul
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 3     3      0      22
+                                             24 BANK0      3     3      0
+                        _eeprom_read
+ ---------------------------------------------------------------------------------
+ (1) _eeprom_read                                          1     1      0      22
+                                             23 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (2) _Remote                                              17    17      0    1267
+                                              6 BANK0     17    17      0
+                          _LED_Blink
+                         _Read_Timer
+                             ___wmul
+                       _eeprom_write
+                      i1_eeprom_read
+ ---------------------------------------------------------------------------------
+ (3) i1_eeprom_read                                        1     1      0      22
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (3) _eeprom_write                                         2     1      1     522
+                                              0 BANK0      2     1      1
+ ---------------------------------------------------------------------------------
+ (3) ___wmul                                               6     2      4     244
+                                              0 BANK0      6     2      4
+ ---------------------------------------------------------------------------------
+ (3) _Read_Timer                                           5     3      2      46
+                                              0 BANK0      5     3      2
+ ---------------------------------------------------------------------------------
+ (3) _LED_Blink                                            6     6      0      46
+                                              0 BANK0      6     6      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _eeprom_read
+
+ _Remote (ROOT)
+   _LED_Blink
+   _Read_Timer
+   ___wmul
+   _eeprom_write
+   i1_eeprom_read
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+SFR1                 0      0       0       2        0.0%
+BITSFR1              0      0       0       2        0.0%
+BANK0               3E     1B      2B       4       69.4%
+BITBANK0            3E      0       0       3        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+BITCOMMON            0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+DATA                 0      0      2B       6        0.0%
+ABS                  0      0      2B       5        0.0%
+NULL                 0      0       0       0        0.0%
+STACK                0      0       0       2        0.0%
+EEDATA              80      0       0       0        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.10 build 88905656 
+Symbol Table                                                                                   Mon Jun 01 20:11:03 2020
+
+                      pc 0002              __CFG_CP$OFF 0000                       fsr 0004  
+    ___wmul@multiplicand 0022                      l244 030B                      _GIE 005F  
+           __CFG_CPD$OFF 0000                      fsr0 0004                      indf 0000  
+                   l1400 026B                     l1410 0281                     l1412 028D  
+                   l1388 0254                     u1217 0276                     u1227 0287  
+                   _IOCA 0096                     _PIE1 008C                     _RAIF 0058  
+                   _INTF 0059                     i1l76 01F1                     _TMR1 000E  
+                   _WPUA 0095           ??_eeprom_write 0000           Read_Timer@stat 0024  
+                   _Mode 0049                     _Temp 0048                     _main 0254  
+                   btemp 005E       __size_of_LED_Blink 0032                     start 000F  
+                  ?_main 0020                    _EEADR 009B            __CFG_WDTE$OFF 0000  
+                  _T1CON 0010                    i1l104 0178                    i1l105 0168  
+                  i1l130 023E                    i1l131 020E                    i1l244 0327  
+                  i1l264 02C3                    _PORTA 0005                    _PORTC 0007  
+                  u61_25 029D                    u80_25 008E                    u72_25 0032  
+                  _TRISA 0085                    u81_25 00A0                    u73_25 003A  
+                  _TRISC 0087                    u90_25 010A                    u74_25 0045  
+                  u92_25 012E                    u93_25 0145                    u77_25 0067  
+                  u78_25 0079                    u87_25 00DF                    u89_25 00F8  
+                  u98_25 0176                    _Shift 031E           __CFG_BOREN$OFF 0000  
+                  pclath 000A                    status 0003                    wtemp0 005E  
+         __CFG_MCLRE$OFF 0000          __initialization 0010             __end_of_main 0290  
+             _Read_Timer 02F7                   ??_main 0038               Remote@Data 0044  
+             Remote@Fall 0042               Remote@Code 003B               Remote@Half 0030  
+             Remote@Rise 0040        __end_of_LED_Blink 02C2   __size_ofi1_eeprom_read 000E  
+                 _EEDATA 009A                   _EECON1 009C                   _EECON2 009D  
+             _Remote$101 002E                   i1l1110 0294                   i1l1300 019D  
+                 i1l1204 007F                   i1l1222 00B7                   i1l1206 0081  
+                 i1l1230 00C5                   i1l1152 02E0                   i1l1216 00AC  
+                 i1l1330 01D7                   i1l1156 02E8                   i1l1308 01A6  
+                 i1l1260 0113                   i1l1228 00C2                   i1l1342 01E7  
+                 i1l1328 01D0                   i1l1248 010C                   i1l1336 01DC  
+                 i1l1192 0050                   i1l1176 001F                   i1l1370 0229  
+                 i1l1276 015F                   i1l1196 0057                   i1l1374 022B  
+                 i1l1376 0235                   i1l1384 0246                   i1l1298 019A  
+                 u123_27 0193                   u108_25 01C6                   u124_27 01FA  
+                 u125_27 0216                   u126_27 02A7                   u127_27 02B6  
+                 _INTCON 000B                   _TMR1IF 0060                   _STATUS 0003  
+         __CFG_PWRTE$OFF 0000                   _Remote 0019     __size_of_eeprom_read 000F  
+                 ___wmul 02DE     __end_of_eeprom_write 02DE                   saved_w 005E  
+__end_of__initialization 0017          eeprom_read@addr 0037            i1_eeprom_read 0326  
+         __pcstackCOMMON 0000            __end_of_Shift 0326             __pidataBANK0 0000  
+            ?_Read_Timer 0020        eeprom_write@value 0020              Remote@Check 0045  
+            Remote@Index 0046              Remote@i_104 0033               __pbssBANK0 003B  
+        LED_Blink@blinks 0023           ?i1_eeprom_read 0020                  ?_Remote 0020  
+             __pmaintext 0254                  ?___wmul 0020               __pintentry 0004  
+             __stringtab 0318      __size_of_Read_Timer 0012                  Remote@i 0035  
+        __size_of_Remote 023B    __size_of_eeprom_write 001C          __size_of___wmul 0019  
+                __ptext1 0309                  __ptext2 0019                  __ptext3 0326  
+                __ptext4 02C2                  __ptext5 02DE                  __ptext6 02F7  
+                __ptext7 0290                _LED_Blink 0290                  clrloop0 0335  
+   end_of_initialization 0017          ??i1_eeprom_read 0000             _eeprom_write 02C2  
+              _PORTAbits 0005               ?_LED_Blink 0020           Remote@Preamble 0047  
+          ??_eeprom_read 0000            Read_Timer@val 0022           __end_of_Remote 0254  
+           ??_Read_Timer 0000               LED_Blink@i 0024                _Direction 004A  
+         __end_of___wmul 02F7      start_initialization 0010                Remote@End 0032  
+     __end_of_Read_Timer 0309                 ??_Remote 0026                 ??___wmul 0000  
+    __end_of_eeprom_read 0318              __pdataBANK0 004A             Remote@Notice 0031  
+              ___latbits 0000            __pcstackBANK0 0020              ??_LED_Blink 0020  
+       eeprom_write@addr 0021                __pnvBANK0 0048                __pstrings 0318  
+      interrupt_function 0004           ___wmul@product 0024                clear_ram0 0334  
+            _eeprom_read 0309              __stringbase 031D        ___wmul@multiplier 0020  
+  __end_ofi1_eeprom_read 0334               _EECON1bits 009C       __end_of__stringtab 031E  
+      i1eeprom_read@addr 0020            __size_of_main 003C               _INTCONbits 000B  
+               intlevel1 0000                stringcode 0318               _OPTION_REG 0081  
+               stringdir 0318                 stringtab 0318            ?_eeprom_write 0020  
+             _STATUSbits 0003        __CFG_FOSC$INTRCIO 0000             ?_eeprom_read 0020  

@@ -1,0 +1,221 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID SPEEDOPT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F630 ]
+[d frameptr 0 ]
+"10 B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"15 B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"4 B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"6 B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+[v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
+[v i1_eeprom_read eeprom_read `(uc  1 e 1 0 ]
+"6 B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
+[v _eeprom_write eeprom_write `(v  1 e 1 0 ]
+"38 A:\Projects\MPLAB\EV1527.X\main.c
+[v _LED_Blink LED_Blink `(v  1 e 1 0 ]
+"47
+[v _Read_Timer Read_Timer `(ui  1 e 2 0 ]
+"60
+[v _Remote Remote `II(v  1 e 1 0 ]
+"203
+[v _main main `(v  1 e 1 0 ]
+"73 B:\Program Files\Microchip\xc8\v2.10\pic\include\pic16f630.h
+[v _STATUS STATUS `VEuc  1 e 1 @3 ]
+[s S129 . 1 `uc 1 C 1 0 :1:0 
+`uc 1 DC 1 0 :1:1 
+`uc 1 Z 1 0 :1:2 
+`uc 1 nPD 1 0 :1:3 
+`uc 1 nTO 1 0 :1:4 
+`uc 1 RP 1 0 :2:5 
+`uc 1 IRP 1 0 :1:7 
+]
+"99
+[s S137 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RP0 1 0 :1:5 
+`uc 1 RP1 1 0 :1:6 
+]
+[s S141 . 1 `uc 1 CARRY 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ZERO 1 0 :1:2 
+]
+[u S145 . 1 `S129 1 . 1 0 `S137 1 . 1 0 `S141 1 . 1 0 ]
+[v _STATUSbits STATUSbits `VES145  1 e 1 @3 ]
+"166
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+[s S22 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+]
+"181
+[u S29 . 1 `S22 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES29  1 e 1 @5 ]
+"216
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"286
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+[s S166 . 1 `uc 1 RAIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RAIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"309
+[s S175 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S180 . 1 `S166 1 . 1 0 `S175 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES180  1 e 1 @11 ]
+"406
+[v _TMR1 TMR1 `VEus  1 e 2 @14 ]
+"427
+[v _T1CON T1CON `VEuc  1 e 1 @16 ]
+"551
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
+"628
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"678
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"728
+[v _PIE1 PIE1 `VEuc  1 e 1 @140 ]
+"864
+[v _WPUA WPUA `VEuc  1 e 1 @149 ]
+"952
+[v _IOCA IOCA `VEuc  1 e 1 @150 ]
+"1115
+[v _EEDATA EEDATA `VEuc  1 e 1 @154 ]
+"1148
+[v _EEADR EEADR `VEuc  1 e 1 @155 ]
+"1155
+[v _EECON1 EECON1 `VEuc  1 e 1 @156 ]
+[s S113 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+]
+"1168
+[u S118 . 1 `S113 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES118  1 e 1 @156 ]
+"1193
+[v _EECON2 EECON2 `VEuc  1 e 1 @157 ]
+"1260
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"1269
+[v _INTF INTF `VEb  1 e 0 @89 ]
+"1329
+[v _RAIF RAIF `VEb  1 e 0 @88 ]
+"1401
+[v _TMR1IF TMR1IF `VEb  1 e 0 @96 ]
+"33 A:\Projects\MPLAB\EV1527.X\main.c
+[v _Shift Shift `DC[8]uc  1 e 8 0 ]
+"34
+[v _Direction Direction `VEuc  1 e 1 0 ]
+"35
+[v _Mode Mode `VEuc  1 e 1 0 ]
+"36
+[v _Temp Temp `VEuc  1 e 1 0 ]
+"203
+[v _main main `(v  1 e 1 0 ]
+{
+"226
+} 0
+"6 B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+[v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
+{
+[v eeprom_read@addr addr `uc  1 a 1 wreg ]
+[v eeprom_read@addr addr `uc  1 a 1 wreg ]
+"9
+[v eeprom_read@addr addr `uc  1 a 1 23 ]
+"19
+} 0
+"60 A:\Projects\MPLAB\EV1527.X\main.c
+[v _Remote Remote `II(v  1 e 1 0 ]
+{
+"145
+[v Remote@i_104 i `i  1 a 2 19 ]
+"112
+[v Remote@i i `i  1 a 2 21 ]
+"111
+[v Remote@Half Half `uc  1 a 1 16 ]
+"178
+[v Remote@End End `uc  1 a 1 18 ]
+"179
+[v Remote@Notice Notice `uc  1 a 1 17 ]
+"61
+[v Remote@Fall Fall `ui  1 s 2 Fall ]
+"62
+[v Remote@Rise Rise `ui  1 s 2 Rise ]
+"63
+[v Remote@Preamble Preamble `uc  1 s 1 Preamble ]
+"64
+[v Remote@Index Index `uc  1 s 1 Index ]
+"65
+[v Remote@Code Code `[5]uc  1 s 5 Code ]
+"66
+[v Remote@Check Check `uc  1 s 1 Check ]
+"67
+[v Remote@Data Data `uc  1 s 1 Data ]
+"201
+} 0
+"6 B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+[v i1_eeprom_read eeprom_read `(uc  1 e 1 0 ]
+{
+[v i1eeprom_read@addr addr `uc  1 a 1 wreg ]
+[v i1eeprom_read@addr addr `uc  1 a 1 wreg ]
+"9
+[v i1eeprom_read@addr addr `uc  1 a 1 0 ]
+"19
+} 0
+"6 B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
+[v _eeprom_write eeprom_write `(v  1 e 1 0 ]
+{
+[v eeprom_write@addr addr `uc  1 a 1 wreg ]
+[v eeprom_write@addr addr `uc  1 a 1 wreg ]
+[v eeprom_write@value value `uc  1 p 1 0 ]
+[v eeprom_write@addr addr `uc  1 a 1 1 ]
+"9
+} 0
+"15 B:\Program Files\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"47 A:\Projects\MPLAB\EV1527.X\main.c
+[v _Read_Timer Read_Timer `(ui  1 e 2 0 ]
+{
+"49
+[v Read_Timer@val val `ui  1 a 2 2 ]
+"48
+[v Read_Timer@stat stat `uc  1 a 1 4 ]
+"58
+} 0
+"38
+[v _LED_Blink LED_Blink `(v  1 e 1 0 ]
+{
+[v LED_Blink@blinks blinks `uc  1 a 1 wreg ]
+"39
+[v LED_Blink@i i `i  1 a 2 4 ]
+"38
+[v LED_Blink@blinks blinks `uc  1 a 1 wreg ]
+[v LED_Blink@blinks blinks `uc  1 a 1 3 ]
+"45
+} 0
